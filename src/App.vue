@@ -32,7 +32,9 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+$xcolor: #0FF;
+
 html {
   height: 100%;
 }
@@ -53,7 +55,7 @@ body {
 }
 
 #app a {
-  color: #42b983;
+  color: $xcolor;
   text-decoration: none;
 }
 
