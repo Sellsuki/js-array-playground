@@ -1,41 +1,86 @@
 <template>
   <div id="app">
-    <img class="logo" src="./assets/logo.png">
-    <hello></hello>
-    <p>
-      Welcome to your Vue.js app!
-    </p>
-    <p>
-      To get a better understanding of how this boilerplate works, check out
-      <a href="http://vuejs-templates.github.io/webpack" target="_blank">its documentation</a>.
-      It is also recommended to go through the docs for
-      <a href="http://webpack.github.io/" target="_blank">Webpack</a> and
-      <a href="http://vuejs.github.io/vue-loader/" target="_blank">vue-loader</a>.
-      If you have any issues with the setup, please file an issue at this boilerplate's
-      <a href="https://github.com/vuejs-templates/webpack" target="_blank">repository</a>.
-    </p>
-    <p>
-      You may also want to checkout
-      <a href="https://github.com/vuejs/vue-router/" target="_blank">vue-router</a> for routing and
-      <a href="https://github.com/vuejs/vuex/" target="_blank">vuex</a> for state management.
-    </p>
-    <button class="button is-primary is-large is-loading">button</button>
-    <a class="button is-primary">
-      <span class="icon">
-        <i class="fa fa-twitter"></i>
-      </span>
-      <span>Twitter</span>
-    </a>
+    <div class="columns">
+      <div class="column is-4">
+        <pre>{{ usersString }}</pre>
+      </div>
+      <div class="column is-4">
+        <textarea v-model="inputCode" rows="8" cols="40"></textarea>
+        <br>
+        <button class="button is-primary" @click="runCode(inputCode)">Run</button>
+      </div>
+      <div class="column is-4">
+        <pre>{{ resultString }}</pre>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import Hello from './components/Hello'
+// import Hello from './components/Hello'
 
 export default {
-  components: {
-    Hello
-  }
+  data () {
+    return {
+      inputCode: 'users.map(item => item.name)',
+      result: {},
+      users: [
+        {
+          id: 1000,
+          name: 'Corey Griffith',
+          username: 'cGriffith',
+          gender: 'male',
+          age: 13
+        },
+        {
+          id: 1001,
+          name: 'Marion McDaniel',
+          username: 'mMcDaniel',
+          gender: 'female',
+          age: 15
+        },
+        {
+          id: 1002,
+          name: 'Tom Robbins',
+          username: 'tRobbins',
+          gender: 'male',
+          age: 15
+        },
+        {
+          id: 1003,
+          name: 'Ruth Harvey',
+          username: 'rHarvey',
+          gender: 'female',
+          age: 14
+        },
+        {
+          id: 1004,
+          name: 'Terry Willis',
+          username: 'tWillis',
+          gender: 'male',
+          age: 13
+        }
+      ]
+    }
+  },
+  computed: {
+    usersString () {
+      return JSON.stringify(this.users, null, '  ')
+    },
+    resultString () {
+      return JSON.stringify(this.result, null, '  ')
+    }
+  },
+  ready () {},
+  attached () {},
+  methods: {
+    runCode (code) {
+      /*eslint-disable */
+      this.result = eval('this.'+ code)
+      /*eslint-enable */
+    }
+  },
+  components: {}
 }
 </script>
 
