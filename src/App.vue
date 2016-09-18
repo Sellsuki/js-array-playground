@@ -1,30 +1,60 @@
 <template>
-  <div id="app">
-    <div class="columns">
-      <div class="column is-4">
-        <pre><code class="hljs javascript">{{{usersString | highlight 'javascript'}}}</code></pre>
+  <section class="hero is-fullheight">
+    <div class="tile">
+      <div class="tile is-vertical is-4">
+        <pre class="overflow-scroll is-code-background"><code class="hljs javascript">{{{usersString | highlight 'javascript'}}}</code></pre>
       </div>
-      <div class="column is-4">
-        <textarea v-model="inputCode" rows="8" cols="40"></textarea>
-        <br>
-        <button class="button is-primary" @click="runCode(inputCode)">Run</button>
+      <div class="tile is-vertical is-4">
+        <div class="overflow-scroll">
+          <div class="content is-medium">
+            <code-boxs :examples="examples" :run="run"></code-boxs>
+            <center class="is-small">
+              made with 🍺 by Sellsuki
+            </center>
+            <br>
+          </div>
+        </div>
       </div>
-      <div class="column is-4">
-        <pre><code class="hljs javascript">{{{resultString | highlight 'javascript'}}}</code></pre>
+      <div class="tile is-vertical is-4">
+        <pre class="overflow-scroll is-code-background"><code class="hljs javascript">{{{resultString | highlight 'javascript'}}}</code></pre>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
-import hljs from 'highlight.js'
-// import Hello from './components/Hello'
+import CodeBoxs from './components/CodeBoxs'
 
 export default {
   data () {
     return {
+      emojis: ['🍺', '🖥', '💻', '⌨', '🕹', '🤖', '👙', '🐶', '🏓', '🎮'],
       inputCode: 'users.map(item => item.name)',
-      result: {},
+      examples: [
+        {
+          title: 'playground',
+          content: 'ลองเล่นกันดู',
+          code: ''
+        },
+        {
+          title: 'filter',
+          content: 'ลองเล่นกันดู',
+          code: 'users.filter(item => item.age > 13)'
+        },
+        {
+          title: 'map',
+          content: 'ลองเล่นกันดู',
+          code: 'users.map(item => item.gender)'
+        },
+        {
+          title: 'map',
+          content: 'ลองเล่นกันดู',
+          code: `users.map(function (item) {
+  return item.age
+})`
+        }
+      ],
+      result: 'output',
       users: [
         {
           id: 1000,
@@ -66,7 +96,7 @@ export default {
   },
   computed: {
     usersString () {
-      return JSON.stringify(this.users, null, '  ')
+      return 'var users = ' + JSON.stringify(this.users, null, '  ')
     },
     resultString () {
       return JSON.stringify(this.result, null, '  ')
@@ -75,30 +105,50 @@ export default {
   ready () {},
   attached () {},
   methods: {
-    runCode (code) {
-      /*eslint-disable */
+    run (code) {
       try {
+        /*eslint-disable */
         this.result = eval('this.'+ code)
+        /*eslint-enable */
       } catch (e) {
-        console.log(e)
-        console.log(typeof e)
-        console.log(JSON.stringify(e))
-        console.log(e.toString())
         this.result = e.toString()
       }
-      /*eslint-enable */
     }
   },
-  components: {},
-  filters: {
-    highlight: function (value, lang) {
-      return hljs.highlightAuto(value, [lang]).value
-    }
+  components: {
+    CodeBoxs
   }
 }
 </script>
 
 <style lang="scss">
+$column-gap: 0px;
 @import '~bulma';
-@import "../node_modules/highlight.js/styles/tomorrow-night";
+@import "../node_modules/highlight.js/styles/atom-one-dark";
+
+*:focus {
+  outline: none;
+}
+.overflow-scroll {
+  overflow-y: scroll;
+  height: 100vh;
+  max-height: 100vh;
+}
+.is-code-background {
+  background-color: #282c34;
+}
+.content {
+  padding: 10px 20px;
+}
+.input-code {
+  width: 100%;
+  max-width: 100%;
+  min-width: 100%;
+  border-radius: 3px;
+  border: 0px;
+
+}
+.round {
+  border-radius: 3px;
+}
 </style>
