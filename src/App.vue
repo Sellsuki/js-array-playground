@@ -20,6 +20,12 @@
       <a href="https://github.com/vuejs/vuex/" target="_blank">vuex</a> for state management.
     </p>
     <button class="button is-primary is-large is-loading">button</button>
+    <a class="button is-primary">
+      <span class="icon">
+        <i class="fa fa-twitter"></i>
+      </span>
+      <span>Twitter</span>
+    </a>
   </div>
 </template>
 
