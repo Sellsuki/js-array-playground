@@ -2,7 +2,7 @@
   <div id="app">
     <div class="columns">
       <div class="column is-4">
-        <pre>{{ usersString }}</pre>
+        <pre><code class="hljs javascript">{{{usersString | highlight 'javascript'}}}</code></pre>
       </div>
       <div class="column is-4">
         <textarea v-model="inputCode" rows="8" cols="40"></textarea>
@@ -10,13 +10,14 @@
         <button class="button is-primary" @click="runCode(inputCode)">Run</button>
       </div>
       <div class="column is-4">
-        <pre>{{ resultString }}</pre>
+        <pre><code class="hljs javascript">{{{resultString | highlight 'javascript'}}}</code></pre>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import hljs from 'highlight.js'
 // import Hello from './components/Hello'
 
 export default {
@@ -76,14 +77,28 @@ export default {
   methods: {
     runCode (code) {
       /*eslint-disable */
-      this.result = eval('this.'+ code)
+      try {
+        this.result = eval('this.'+ code)
+      } catch (e) {
+        console.log(e)
+        console.log(typeof e)
+        console.log(JSON.stringify(e))
+        console.log(e.toString())
+        this.result = e.toString()
+      }
       /*eslint-enable */
     }
   },
-  components: {}
+  components: {},
+  filters: {
+    highlight: function (value, lang) {
+      return hljs.highlightAuto(value, [lang]).value
+    }
+  }
 }
 </script>
 
 <style lang="scss">
 @import '~bulma';
+@import "../node_modules/highlight.js/styles/tomorrow-night";
 </style>
