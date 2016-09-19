@@ -7,6 +7,8 @@
       <div class="tile is-vertical is-4">
         <div class="overflow-scroll">
           <div class="content is-medium">
+            <h1 class="title is-1">JavaScript Array Playground</h1>
+            <hr>
             <code-boxs :examples="examples" :run="run"></code-boxs>
             <center class="is-small">
               made with 🍺 by Sellsuki
@@ -24,36 +26,16 @@
 
 <script>
 import CodeBoxs from './components/CodeBoxs'
+import examples from './data/examples'
+
+console.log(examples)
 
 export default {
   data () {
     return {
       emojis: ['🍺', '🖥', '💻', '⌨', '🕹', '🤖', '👙', '🐶', '🏓', '🎮'],
       inputCode: 'users.map(item => item.name)',
-      examples: [
-        {
-          title: 'playground',
-          content: 'ลองเล่นกันดู',
-          code: ''
-        },
-        {
-          title: 'filter',
-          content: 'ลองเล่นกันดู',
-          code: 'users.filter(item => item.age > 13)'
-        },
-        {
-          title: 'map',
-          content: 'ลองเล่นกันดู',
-          code: 'users.map(item => item.gender)'
-        },
-        {
-          title: 'map',
-          content: 'ลองเล่นกันดู',
-          code: `users.map(function (item) {
-  return item.age
-})`
-        }
-      ],
+      examples,
       result: 'output',
       users: [
         {
