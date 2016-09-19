@@ -11,7 +11,7 @@
             <hr>
             <code-boxs :examples="examples" :run="run"></code-boxs>
             <center class="is-small">
-              <a class="github-button" href="https://github.com/Sellsuki/js-array-playground/fork" data-style="mega" data-count-href="/Sellsuki/js-array-playground/network" data-count-api="/repos/Sellsuki/js-array-playground#forks_count" data-count-aria-label="# forks on GitHub" aria-label="Fork Sellsuki/js-array-playground on GitHub">Fork</a>
+              <a class="github-button" href="https://github.com/Sellsuki/js-array-playground" data-style="mega" data-count-href="/Sellsuki/js-array-playground/stargazers" data-count-api="/repos/Sellsuki/js-array-playground#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star Sellsuki/js-array-playground on GitHub">Star</a>
               <br><br>
               made with 🍺 by Sellsuki
             </center>
