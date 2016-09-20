@@ -63,13 +63,11 @@ export default {
       try {
         /*eslint-disable */
         let result = eval('this.'+ code)
-        console.log(result)
         if (result) {
           this.result = result
         } else {
           this.result = 'undefined'
         }
-        // this.result = (result) : result ? 'undefined'
         /*eslint-enable */
       } catch (e) {
         this.result = e.toString()
