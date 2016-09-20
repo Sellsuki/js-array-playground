@@ -136,6 +136,7 @@ $column-gap: 0px;
   outline: none;
 }
 .overflow-scroll {
+  border-top: 1px solid #EEE;
   -webkit-overflow-scrolling: touch;
   overflow-y: scroll;
   height: 50vh;
