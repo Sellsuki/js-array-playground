@@ -3,11 +3,11 @@
     <div class="columns is-marginless is-gapless is-desktop">
 
       <div class="column is-4-desktop" :class="{'is-hidden-touch': toggleView}">
-        <pre class="overflow-scroll is-code-background"><code class="hljs javascript">{{{usersString | highlight 'javascript'}}}</code></pre>
+        <pre class="overflow-scroll-60 is-code-background"><code class="hljs javascript">{{{usersString | highlight 'javascript'}}}</code></pre>
       </div>
 
       <div class="column is-4-desktop" :class="{'is-hidden-touch': !toggleView}">
-        <div class="overflow-scroll">
+        <div class="overflow-scroll-60">
           <div class="content is-medium">
             <h1 class="title is-1">JavaScript Array Playground</h1>
             <hr>
@@ -23,7 +23,7 @@
       </div>
 
       <div class="column is-4-desktop">
-        <pre class="overflow-scroll is-code-background"><code class="hljs javascript">{{{resultString | highlight 'javascript'}}}</code></pre>
+        <pre class="overflow-scroll-40 is-code-background"><code class="hljs javascript">{{{resultString | highlight 'javascript'}}}</code></pre>
       </div>
     </div>
     <div class="toggle-button is-hidden-desktop" @click="toggleView = !toggleView">
@@ -102,15 +102,21 @@ $column-gap: 0px;
 *:focus {
   outline: none;
 }
-.overflow-scroll {
+.overflow-scroll-60, .overflow-scroll-40 {
   border-top: 1px solid #EEE;
   -webkit-overflow-scrolling: touch;
   overflow-y: scroll;
-  height: 50vh;
-  max-height: 50vh;
+}
+.overflow-scroll-60{
+  height: 60vh;
+  max-height: 60vh;
+}
+.overflow-scroll-40{
+  height: 40vh;
+  max-height: 40vh;
 }
 @media screen and (min-width: 980px) {
-  .overflow-scroll {
+  .overflow-scroll-60, .overflow-scroll-40 {
     height: 100vh;
     max-height: 100vh;
   }
