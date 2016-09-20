@@ -36,52 +36,16 @@
 <script>
 import CodeBoxs from './components/CodeBoxs'
 import examples from './data/examples'
+import users from './data/users'
 
 export default {
   data () {
     return {
       toggleView: true,
       emojis: ['🍺', '🖥', '💻', '⌨', '🕹', '🤖', '👙', '🐶', '🏓', '🎮'],
-      inputCode: 'users.map(item => item.name)',
       examples,
-      result: 'output',
-      users: [
-        {
-          id: 1000,
-          name: 'Corey Griffith',
-          username: 'coGriffith',
-          gender: 'male',
-          age: 13
-        },
-        {
-          id: 1001,
-          name: 'Marion McDaniel',
-          username: 'mMcDaniel',
-          gender: 'female',
-          age: 15
-        },
-        {
-          id: 1002,
-          name: 'Tom Robbins',
-          username: 'tRobbins',
-          gender: 'male',
-          age: 15
-        },
-        {
-          id: 1003,
-          name: 'Ruth Harvey',
-          username: 'rHarvey',
-          gender: 'female',
-          age: 14
-        },
-        {
-          id: 1004,
-          name: 'Terry Willis',
-          username: 'tWillis',
-          gender: 'male',
-          age: 13
-        }
-      ]
+      users,
+      result: 'output'
     }
   },
   computed: {
@@ -98,7 +62,14 @@ export default {
     run (code) {
       try {
         /*eslint-disable */
-        this.result = eval('this.'+ code)
+        let result = eval('this.'+ code)
+        console.log(result)
+        if (result) {
+          this.result = result
+        } else {
+          this.result = 'undefined'
+        }
+        // this.result = (result) : result ? 'undefined'
         /*eslint-enable */
       } catch (e) {
         this.result = e.toString()
