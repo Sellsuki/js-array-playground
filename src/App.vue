@@ -43,7 +43,7 @@ export default {
     return {
       toggleView: true,
       emojisIndex: 0,
-      emojis: ['🍺', '🖥', '💻', '⌨', '🕹', '🤖', '👙', '🐶', '🏓', '🎮'],
+      emojis: ['🍺', '🍻', '🍾', '🍶', '🍵', '☕️', '🍼', '💻', '👙', '🐶', '🎮', '💪', '🕶'],
       examples,
       users: [...users],
       result: 'output',
