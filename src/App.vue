@@ -65,12 +65,12 @@ export default {
       try {
         /*eslint-disable */
         let result = eval('this.'+ code)
+        /*eslint-enable */
         if (result) {
           this.result = result
         } else {
           this.result = 'undefined'
         }
-        /*eslint-enable */
       } catch (e) {
         this.result = e.toString()
       }
