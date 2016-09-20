@@ -46,7 +46,7 @@ export default {
         {
           id: 1000,
           name: 'Corey Griffith',
-          username: 'cGriffith',
+          username: 'coGriffith',
           gender: 'male',
           age: 13
         },
