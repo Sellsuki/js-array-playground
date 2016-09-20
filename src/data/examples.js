@@ -12,7 +12,17 @@ let examples = [
   {
     title: 'Array.map()',
     content: 'เป็นการสร้าง array ขึ้นมาใหม่จาก array เดิมโดย array ใหม่นั้นจะมีค่าจากการ return ค่าของ function ที่เราส่งเข้าไป',
+    code: 'users.map(item => item)'
+  },
+  {
+    title: 'Array.map()',
+    content: 'เป็นการสร้าง array ขึ้นมาใหม่จาก array เดิมโดย array ใหม่นั้นจะมีค่าจากการ return ค่าของ function ที่เราส่งเข้าไป',
     code: 'users.map(item => item.gender)'
+  },
+  {
+    title: 'Array.map()',
+    content: 'เป็นการสร้าง array ขึ้นมาใหม่จาก array เดิมโดย array ใหม่นั้นจะมีค่าจากการ return ค่าของ function ที่เราส่งเข้าไป',
+    code: 'users.map(item => item.name + \' age \' + item.age)'
   },
   {
     title: 'Array.map()',
