@@ -2,11 +2,11 @@
   <section class="is-fullheight">
     <div class="columns is-marginless is-gapless is-desktop">
 
-      <div class="column is-4-desktop is-hidden-touch">
+      <div class="column is-4-desktop" :class="{'is-hidden-touch': toggleView}">
         <pre class="overflow-scroll is-code-background"><code class="hljs javascript">{{{usersString | highlight 'javascript'}}}</code></pre>
       </div>
 
-      <div class="column is-4-desktop">
+      <div class="column is-4-desktop" :class="{'is-hidden-touch': !toggleView}">
         <div class="overflow-scroll">
           <div class="content is-medium">
             <h1 class="title is-1">JavaScript Array Playground</h1>
@@ -26,6 +26,10 @@
         <pre class="overflow-scroll is-code-background"><code class="hljs javascript">{{{resultString | highlight 'javascript'}}}</code></pre>
       </div>
     </div>
+    <div class="toggle-button is-hidden-desktop" @click="toggleView = !toggleView">
+      <i v-if="toggleView" class="fa fa-code" aria-hidden="true"></i>
+      <i v-if="!toggleView" class="fa fa-book" aria-hidden="true"></i>
+    </div>
   </section>
 </template>
 
@@ -38,6 +42,7 @@ console.log(examples)
 export default {
   data () {
     return {
+      toggleView: true,
       emojis: ['🍺', '🖥', '💻', '⌨', '🕹', '🤖', '👙', '🐶', '🏓', '🎮'],
       inputCode: 'users.map(item => item.name)',
       examples,
@@ -113,17 +118,31 @@ $column-gap: 0px;
 @import '~bulma';
 @import "../node_modules/highlight.js/styles/atom-one-dark";
 
+.toggle-button {
+  display: block;
+  position: fixed;
+  right: 10px;
+  top: 10px;
+  border-radius: 3px;
+  text-align: center;
+  background: rgba(100, 100, 100, 0.2);
+  padding: 2px 8px;
+}
+.toggle-button:hover {
+  background: rgba(100, 100, 100, 0.5);
+}
+
 *:focus {
   outline: none;
 }
 .overflow-scroll {
+  -webkit-overflow-scrolling: touch;
   overflow-y: scroll;
   height: 50vh;
   max-height: 50vh;
 }
 @media screen and (min-width: 980px) {
   .overflow-scroll {
-    overflow-y: scroll;
     height: 100vh;
     max-height: 100vh;
   }
