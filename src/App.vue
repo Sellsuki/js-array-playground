@@ -1,10 +1,12 @@
 <template>
-  <section class="hero is-fullheight">
-    <div class="tile">
-      <div class="tile is-vertical is-4">
+  <section class="is-fullheight">
+    <div class="columns is-marginless is-gapless is-desktop">
+
+      <div class="column is-4-desktop is-hidden-touch">
         <pre class="overflow-scroll is-code-background"><code class="hljs javascript">{{{usersString | highlight 'javascript'}}}</code></pre>
       </div>
-      <div class="tile is-vertical is-4">
+
+      <div class="column is-4-desktop">
         <div class="overflow-scroll">
           <div class="content is-medium">
             <h1 class="title is-1">JavaScript Array Playground</h1>
@@ -19,7 +21,8 @@
           </div>
         </div>
       </div>
-      <div class="tile is-vertical is-4">
+
+      <div class="column is-4-desktop">
         <pre class="overflow-scroll is-code-background"><code class="hljs javascript">{{{resultString | highlight 'javascript'}}}</code></pre>
       </div>
     </div>
@@ -115,8 +118,15 @@ $column-gap: 0px;
 }
 .overflow-scroll {
   overflow-y: scroll;
-  height: 100vh;
-  max-height: 100vh;
+  height: 50vh;
+  max-height: 50vh;
+}
+@media screen and (min-width: 980px) {
+  .overflow-scroll {
+    overflow-y: scroll;
+    height: 100vh;
+    max-height: 100vh;
+  }
 }
 .is-code-background {
   background-color: #282c34;
