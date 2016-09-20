@@ -7,7 +7,7 @@
       </div>
 
       <div class="column is-4-desktop" :class="{'is-hidden-touch': !toggleView}">
-        <div class="overflow-scroll-60">
+        <div class="overflow-scroll-60" @scroll="handleScroll">
           <div class="content is-medium">
             <h1 class="title is-1">JavaScript Array Playground</h1>
             <hr>
@@ -15,7 +15,7 @@
             <center class="is-small">
               <a class="github-button" href="https://github.com/Sellsuki/js-array-playground" data-style="mega" data-count-href="/Sellsuki/js-array-playground/stargazers" data-count-api="/repos/Sellsuki/js-array-playground#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star Sellsuki/js-array-playground on GitHub">Star</a>
               <br><br>
-              แอบทำด้วย <a href="http://vuejs.org" target="_blank"><img class="vue-icon" src="https://vuejs.org/images/logo.png" alt="vue.js"/></a> และ 🍺 ที่ออฟฟิศ Sellsuki.
+              แอบทำด้วย <a href="http://vuejs.org" target="_blank"><img class="vue-icon" src="https://vuejs.org/images/logo.png" alt="vue.js"/></a> และ {{ emojis[emojisIndex] }} ที่ออฟฟิศ Sellsuki.
             </center>
             <br>
           </div>
@@ -42,10 +42,12 @@ export default {
   data () {
     return {
       toggleView: true,
+      emojisIndex: 0,
       emojis: ['🍺', '🖥', '💻', '⌨', '🕹', '🤖', '👙', '🐶', '🏓', '🎮'],
       examples,
       users: [...users],
-      result: 'output'
+      result: 'output',
+      scrollArea: 'TOP'
     }
   },
   computed: {
@@ -71,6 +73,25 @@ export default {
         /*eslint-enable */
       } catch (e) {
         this.result = e.toString()
+      }
+    },
+    handleScroll (e) {
+      let scrollArea = 'TOP'
+      if (e.target.scrollHeight - (e.target.scrollTop + e.target.offsetHeight) < 80) {
+        scrollArea = 'BOTTOM'
+      }
+      if (this.scrollArea !== scrollArea && scrollArea === 'TOP') {
+        this.emojisIndex = this.randomNewValue(this.emojis.length, this.emojisIndex)
+      }
+      this.scrollArea = scrollArea
+    },
+    randomNewValue (length, oldValue) {
+      console.log('randomNewValue')
+      let value = Math.floor(Math.random() * length)
+      if (value === oldValue) {
+        return this.randomNewValue(length, oldValue)
+      } else {
+        return value
       }
     }
   },
