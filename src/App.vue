@@ -37,8 +37,6 @@
 import CodeBoxs from './components/CodeBoxs'
 import examples from './data/examples'
 
-console.log(examples)
-
 export default {
   data () {
     return {
