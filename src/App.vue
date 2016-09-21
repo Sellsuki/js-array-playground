@@ -27,7 +27,8 @@
       </div>
     </div>
     <div class="toggle-button is-hidden-desktop" @click="toggleView = !toggleView">
-      <i v-if="toggleView" class="fa fa-code" aria-hidden="true"></i>
+      <span v-if="isTop && toggleView">Show Input</span>
+      <i v-if="!isTop && toggleView" class="fa fa-code" aria-hidden="true"></i>
       <i v-if="!toggleView" class="fa fa-book" aria-hidden="true"></i>
     </div>
   </section>
@@ -41,6 +42,7 @@ import users from './data/users'
 export default {
   data () {
     return {
+      isTop: true,
       toggleView: true,
       emojisIndex: 0,
       emojis: ['🍺', '🍻', '🍶', '🍵', '☕️', '🍼', '💻', '👙', '🐶', '🎮', '💪'],
@@ -76,6 +78,12 @@ export default {
       }
     },
     handleScroll (e) {
+      if (e.target.scrollTop === 0) {
+        this.isTop = true
+      } else {
+        this.isTop = false
+      }
+
       let scrollArea = 'TOP'
       if (e.target.scrollHeight - (e.target.scrollTop + e.target.offsetHeight) < 80) {
         scrollArea = 'BOTTOM'
@@ -115,6 +123,7 @@ $column-gap: 0px;
   text-align: center;
   background: rgba(100, 100, 100, 0.2);
   padding: 2px 8px;
+  cursor: pointer;
 }
 .toggle-button:hover {
   background: rgba(100, 100, 100, 0.5);
