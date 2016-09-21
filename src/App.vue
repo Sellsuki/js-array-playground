@@ -26,7 +26,7 @@
         <pre class="overflow-scroll-40 is-code-background"><code class="hljs javascript">{{{resultString | highlight 'javascript'}}}</code></pre>
       </div>
     </div>
-    <div class="toggle-button is-hidden-desktop" @click="toggleView = !toggleView">
+    <div class="toggle-button is-hidden-desktop is-unselectable" @click="toggleView = !toggleView">
       <span v-if="isTop && toggleView">Show Input</span>
       <i v-if="!isTop && toggleView" class="fa fa-code" aria-hidden="true"></i>
       <i v-if="!toggleView" class="fa fa-book" aria-hidden="true"></i>
@@ -78,7 +78,7 @@ export default {
       }
     },
     handleScroll (e) {
-      if (e.target.scrollTop === 0) {
+      if (e.target.scrollTop <= 5) {
         this.isTop = true
       } else {
         this.isTop = false
