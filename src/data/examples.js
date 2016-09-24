@@ -25,6 +25,11 @@ let examples = [
     code: 'users.filter(item => item.gender === \'female\').map(item => item.username)'
   },
   {
+    title: 'Array.reverse()',
+    content: 'เราสามารถกลับการเรียงของ Array ได้ด้วย',
+    code: 'users.reverse()'
+  },
+  {
     title: 'Playground',
     content: 'อยากรู้ต้องลองเอง',
     code: ''
