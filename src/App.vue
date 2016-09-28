@@ -1,10 +1,11 @@
 <template>
   <section class="is-fullheight">
     <div class="columns is-marginless is-gapless is-desktop">
-
-      <div class="column is-4-desktop" :class="{'is-hidden-touch': toggleView}">
-        <pre class="overflow-scroll-60 is-code-background"><code class="hljs javascript">{{{usersString| highlight 'javascript'}}}</code><code class="hljs javascript" v-show="isOpen">{{{productsString| highlight 'javascript'}}}</code></pre>
-
+    <div class="column is-4-desktop" :class="{'is-hidden-touch': toggleView}">
+        <pre class="overflow-scroll-60 is-code-background">
+          <code class="hljs javascript">{{{usersString| highlight 'javascript'}}}</code>
+          <code class="hljs javascript">{{{productsString| highlight 'javascript'}}}</code>
+        </pre>
       </div>
 
       <div class="column is-4-desktop" :class="{'is-hidden-touch': !toggleView}">

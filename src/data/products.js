@@ -70,36 +70,29 @@ let product = [
     size: '7.9'
   },
   {
-    name: 'iPad mini 2',
-    price: 9900,
-    storage: 32,
-    type: 'iPad',
-    size: '7.9'
-  },
-  {
-    name: 'iphone6s',
-    price: 22000,
+    name: 'iphone7',
+    price: 26000,
     storage: 32,
     type: 'iPhone',
     size: '4.7'
   },
   {
-    name: 'iphone6s',
-    price: 26500,
+    name: 'iphone7',
+    price: 55000,
     storage: 128,
     type: 'iPhone',
     size: '4.7'
   },
   {
-    name: 'iphone6sPlus',
-    price: 26500,
+    name: 'iphone7Plus',
+    price: 49000,
     storage: 32,
     type: 'iPhone',
     size: '5.5'
   },
   {
-    name: 'iphone6sPlus',
-    price: 30500,
+    name: 'iphone7Plus',
+    price: 59000,
     storage: 128,
     type: 'iPhone',
     size: '5.5'
