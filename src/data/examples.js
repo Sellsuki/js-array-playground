@@ -38,6 +38,21 @@ let examples = [
     title: 'Array.reverse()',
     content: 'เป็นการกลับการเรียงลำดับของ Array ค่าภายใน Array ยังอยู่เหมือนเดิม แค่กลับการเรียงลำดับเท่านั้น',
     code: 'users.reverse()'
+  },
+  {
+    title: 'Array.slice()',
+    content: 'ใช้สำหรับ ดึงค่าจากตำแหน่งที่ต้องการในตัวแปร array แล้วคืนค่านั้นกลับมา ไม่มีผลให้ตัวแปร array มีการเปลี่ยนแปลง เช่นต้องการดึงค่าจากตำแหน่งที่ 0 ถึงตำแหน่งที่ 2 (จะไม่ดึงตำแหน่งสุดท้ายมา)',
+    code: 'users.slice(0,3)'
+  },
+  {
+    title: 'Array.slice()',
+    content: 'กรณีดึงตำแหน่งที่ 2 ไปจนถึงตำแหน่งสุดท้าย ไมต้องกำหนด end กำหนด',
+    code: 'users.slice(2)'
+  },
+  {
+    title: 'Array.slice()',
+    content: 'กรณีดึงตำแหน่งเริ่มจาก 2 ตัวหลัง',
+    code: 'users.slice(-2)'
   }
 ]
 export default examples
