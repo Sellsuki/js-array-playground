@@ -35,6 +35,11 @@ let examples = [
     code: 'users.filter(user => user.gender === \'female\').map(user => user.username)'
   },
   {
+    title: 'Array.sort()',
+    content: 'เป็นการเรียงลำดับของ Array จากน้อยไปมากตามค่า Unicode ค่าภายใน Array ยังอยู่เหมือนเดิม แค่เรียงลำดับเท่านั้น',
+    code: 'users.sort((beforeValue, nowValue) => beforeValue.id - nowValue.id)'
+  },
+  {
     title: 'Array.reverse()',
     content: 'เป็นการกลับการเรียงลำดับของ Array ค่าภายใน Array ยังอยู่เหมือนเดิม แค่กลับการเรียงลำดับเท่านั้น',
     code: 'users.reverse()'
