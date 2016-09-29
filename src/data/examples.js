@@ -35,14 +35,29 @@ let examples = [
     code: 'users.filter(user => user.gender === \'female\').map(user => user.username)'
   },
   {
-    title: 'Array.sort()',
-    content: 'เป็นการเรียงลำดับของ Array โดยการเทียบค่าในพารามิเตอร์แรก(เริ่มจาก array[0])และพารามิเตอร์ที่สอง(เริ่มจาก array[1]) การreturnจะส่งผลถึงการย้ายตำแหน่ง หากค่ามากกว่า(1) ขึ้นไป จะทำการสลับตำแหน่งแล้วจะเทียบค่าย้อนกลับจนกว่าจะเจอค่าที่ น้อยกว่า(-1) หรือ เท่ากัน(0) จะหยุดแล้วกลับมาทำตำแหน่งปัจจุบัน *(ในกรณีที่เป็นข้อความให้ return พารามิเตอร์ที่หนึ่ง.localeCompare(พารามิเตอร์ที่สอง)) ค่าภายใน Array ยังอยู่เหมือนเดิม แค่เรียงลำดับเท่านั้น',
-    code: 'users.sort((parameterOne, parameterTwo) => parameterOne.id - parameterTwo.id)'
-  },
-  {
     title: 'Array.reverse()',
     content: 'เป็นการกลับการเรียงลำดับของ Array ค่าภายใน Array ยังอยู่เหมือนเดิม แค่กลับการเรียงลำดับเท่านั้น',
     code: 'users.reverse()'
+  },
+  {
+    title: 'Array.sort()',
+    content: 'sort() แบบไม่มี parameter เป็นการเรียงลำดับของ Array ตามเลข Unicode จากน้อยไปมาก แต่ใช้กับ Array JSON ไม่ได้ ต้องเปลี่ยนให้อยู่ในรูปของ Array ทั่วไปก่อน ค่าภายใน Array ยังอยู่เหมือนเดิม แค่เรียงลำดับเท่านั้น',
+    code: 'users.map(user => user.id).sort()'
+  },
+  {
+    title: 'Array.sort().reverse()',
+    content: 'sort() แบบไม่มี parameter ใช้คู่กับ reverse() จะได้การเรียงจากมากไปน้อย',
+    code: 'users.map(user => user.id).sort().reverse()'
+  },
+  {
+    title: 'Array.sort()',
+    content: 'sort() แบบมี parameter เป็นการเรียงลำดับของ Array โดยการเทียบค่าในพารามิเตอร์แรก(เริ่มจาก array[0])และพารามิเตอร์ที่สอง(เริ่มจาก array[1]) การreturnจะส่งผลถึงการย้ายตำแหน่ง หากค่ามากกว่า(1) ขึ้นไป จะทำการสลับตำแหน่งแล้วจะเทียบค่าย้อนกลับจนกว่าจะเจอค่าที่ น้อยกว่า(-1) หรือ เท่ากัน(0) จะหยุดแล้วกลับมาทำตำแหน่งปัจจุบัน *(ในกรณีที่เป็นข้อความให้ return พารามิเตอร์ที่หนึ่ง.localeCompare(พารามิเตอร์ที่สอง)) ค่าภายใน Array ยังอยู่เหมือนเดิม แค่เรียงลำดับเท่านั้น',
+    code: 'users.sort((parameterOne, parameterTwo) => parameterOne.id - parameterTwo.id)'
+  },
+  {
+    title: 'Array.sort()',
+    content: 'sort() แบบมี parameter ถ้าสลับตัวแปลตอน return จะได้การเรียงจากมากไปน้อย',
+    code: 'users.sort((parameterOne, parameterTwo) => parameterTwo.id - parameterOne.id)'
   }
 ]
 export default examples
