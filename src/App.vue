@@ -1,9 +1,11 @@
 <template>
   <section class="is-fullheight">
     <div class="columns is-marginless is-gapless is-desktop">
-
-      <div class="column is-4-desktop" :class="{'is-hidden-touch': toggleView}">
-        <pre class="overflow-scroll-60 is-code-background"><code class="hljs javascript">{{{usersString | highlight 'javascript'}}}</code></pre>
+    <div class="column is-4-desktop" :class="{'is-hidden-touch': toggleView}">
+        <pre class="overflow-scroll-60 is-code-background">
+          <code class="hljs javascript">{{{usersString| highlight 'javascript'}}}</code>
+          <code class="hljs javascript">{{{productsString| highlight 'javascript'}}}</code>
+        </pre>
       </div>
 
       <div class="column is-4-desktop" :class="{'is-hidden-touch': !toggleView}">
@@ -38,6 +40,7 @@
 import CodeBoxs from './components/CodeBoxs'
 import examples from './data/examples'
 import users from './data/users'
+import products from './data/products'
 
 export default {
   data () {
@@ -48,6 +51,7 @@ export default {
       emojis: ['🍺', '🍻', '🍶', '🍵', '☕️', '🍼', '💻', '👙', '🐶', '🎮', '💪'],
       examples,
       users: [...users],
+      products: [...products],
       result: 'output',
       scrollArea: 'TOP'
     }
@@ -55,6 +59,9 @@ export default {
   computed: {
     usersString () {
       return 'var users = ' + JSON.stringify(this.users, null, '  ')
+    },
+    productsString () {
+      return 'var products = ' + JSON.stringify(this.products, null, '  ')
     },
     resultString () {
       return JSON.stringify(this.result, null, '  ')
