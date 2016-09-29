@@ -36,8 +36,8 @@ let examples = [
   },
   {
     title: 'Array.sort()',
-    content: 'เป็นการเรียงลำดับของ Array จากน้อยไปมากตามค่า Unicode ค่าภายใน Array ยังอยู่เหมือนเดิม แค่เรียงลำดับเท่านั้น',
-    code: 'users.sort((beforeValue, nowValue) => beforeValue.id - nowValue.id)'
+    content: 'เป็นการเรียงลำดับของ Array โดยการเทียบค่าในพารามิเตอร์แรก(เริ่มจาก array[0])และพารามิเตอร์ที่สอง(เริ่มจาก array[1]) การreturnจะส่งผลถึงการย้ายตำแหน่ง หากค่ามากกว่า(1) ขึ้นไป จะทำการสลับตำแหน่งแล้วจะเทียบค่าย้อนกลับจนกว่าจะเจอค่าที่ น้อยกว่า(-1) หรือ เท่ากัน(0) จะหยุดแล้วกลับมาทำตำแหน่งปัจจุบัน *(ในกรณีที่เป็นข้อความให้ return พารามิเตอร์ที่หนึ่ง.localeCompare(พารามิเตอร์ที่สอง)) ค่าภายใน Array ยังอยู่เหมือนเดิม แค่เรียงลำดับเท่านั้น',
+    code: 'users.sort((parameterOne, parameterTwo) => parameterOne.id - parameterTwo.id)'
   },
   {
     title: 'Array.reverse()',
