@@ -41,7 +41,7 @@ let examples = [
   },
   {
     title: 'Array.shift()',
-    content: 'เป็นการดึงค่าลำดับเเรกของ Array ออกมาและมีการ Return ค่ามาเเสดง การทำงานจะส่งผลต่อความยาวของ Array ',
+    content: 'เป็นการลบค่าลำดับเเรกของ Array ออก เเละ Return ตัวนั้น ',
     code: 'users.shift()'
   }
 ]
