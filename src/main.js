@@ -1,13 +1,10 @@
+// The Vue build version to load with the `import` command
+// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-import hljs from 'highlight.js'
-
-Vue.filter('highlight', function (value, lang) {
-  return hljs.highlightAuto(value, [lang]).value
-})
 
 /* eslint-disable no-new */
 new Vue({
-  el: 'body',
-  components: { App }
+  el: '#app',
+  render: h => h(App)
 })

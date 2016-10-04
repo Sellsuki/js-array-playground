@@ -2,8 +2,7 @@
   <section class="is-fullheight">
     <div class="columns is-marginless is-gapless is-desktop">
     <div class="column is-4-desktop" :class="{'is-hidden-touch': toggleView}">
-        <pre class="overflow-scroll-60 is-code-background">
-          <code class="hljs javascript" v-html="usersStringHighlighted"></code>
+        <pre class="overflow-scroll-60 is-code-background"><code class="hljs javascript" v-html="usersStringHighlighted"></code>
           <code class="hljs javascript" v-html="productsStringHighlighted"></code>
         </pre>
       </div>
@@ -17,7 +16,7 @@
             <center class="is-small">
               <a class="github-button" href="https://github.com/Sellsuki/js-array-playground" data-style="mega" data-count-href="/Sellsuki/js-array-playground/stargazers" data-count-api="/repos/Sellsuki/js-array-playground#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star Sellsuki/js-array-playground on GitHub">Star</a>
               <br><br>
-              แอบทำด้วย <a href="http://vuejs.org" target="_blank"><img class="vue-icon" src="https://vuejs.org/images/logo.png" alt="vue.js"/></a> และ {{ emojis[emojisIndex] }} ที่ออฟฟิศ Sellsuki.
+              Made with <a href="http://vuejs.org" target="_blank"><img class="vue-icon" src="https://vuejs.org/images/logo.png" alt="vue.js"/></a> and {{ emojis[emojisIndex] }}.
             </center>
             <br>
           </div>
@@ -25,7 +24,8 @@
       </div>
 
       <div class="column is-4-desktop">
-        <pre class="overflow-scroll-40 is-code-background"><code class="hljs javascript" v-html="resultStringHighlighted"></code></pre>
+        <pre class="overflow-scroll-40 is-code-background"><code class="hljs javascript" v-html="resultStringHighlighted"></code>
+        </pre>
       </div>
     </div>
     <div class="toggle-button is-hidden-desktop is-unselectable" @click="toggleView = !toggleView">
@@ -77,7 +77,6 @@ export default {
       return hljs.highlightAuto(this.resultString, ['javascript']).value
     }
   },
-  mounted () {},
   methods: {
     run (code) {
       try {
@@ -178,7 +177,8 @@ $column-gap: 0px;
   min-width: 100%;
   border-radius: 3px;
   border: 0px;
-
+  font-family: "Inconsolata", "Consolas", "Monaco", monospace;
+  font-size: 14px;
 }
 .round {
   border-radius: 3px;

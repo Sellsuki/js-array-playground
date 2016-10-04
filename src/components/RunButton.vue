@@ -12,10 +12,7 @@ export default {
   data () {
     return {}
   },
-  props: ['code', 'run'],
-  computed: {},
-  methods: {},
-  components: {}
+  props: ['code', 'run']
 }
 </script>
 
