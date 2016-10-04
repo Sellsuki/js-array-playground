@@ -5,12 +5,7 @@
       {{ example.content }}
     </p>
 
-    <!-- <pre v-if="example.code"><code class="hljs javascript round">{{{ example.code | highlight 'javascript' }}}</code></pre>
-    <textarea v-if="!example.code" v-model="inputCode" class="hljs javascript input-code" rows="4">/* เขียนโค้ดที่นี่ */</textarea>
-    <br>
-    <run-button :code="(example.code) ? example.code : inputCode" :run="run"></run-button> -->
-
-    <textarea v-model="inputCode" class="hljs javascript input-code" rows="4">{{{ (example.code) ? example.code : '/* เขียนโค้ดที่นี่ */' }}}</textarea>
+    <textarea v-model="inputCode" class="hljs javascript input-code" rows="4" v-html="code"></textarea>
     <br>
     <run-button :code="inputCode" :run="run"></run-button>
   </div>
@@ -26,9 +21,11 @@ export default {
     }
   },
   props: ['example', 'run'],
-  computed: {},
-  ready () {},
-  attached () {},
+  computed: {
+    code () {
+      return (this.example.code) ? this.example.code : '/* เขียนโค้ดที่นี่ */'
+    }
+  },
   methods: {},
   components: {
     RunButton

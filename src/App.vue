@@ -3,8 +3,8 @@
     <div class="columns is-marginless is-gapless is-desktop">
     <div class="column is-4-desktop" :class="{'is-hidden-touch': toggleView}">
         <pre class="overflow-scroll-60 is-code-background">
-          <code class="hljs javascript">{{{usersString| highlight 'javascript'}}}</code>
-          <code class="hljs javascript">{{{productsString| highlight 'javascript'}}}</code>
+          <code class="hljs javascript" v-html="usersStringHighlighted"></code>
+          <code class="hljs javascript" v-html="productsStringHighlighted"></code>
         </pre>
       </div>
 
@@ -25,7 +25,7 @@
       </div>
 
       <div class="column is-4-desktop">
-        <pre class="overflow-scroll-40 is-code-background"><code class="hljs javascript">{{{resultString | highlight 'javascript'}}}</code></pre>
+        <pre class="overflow-scroll-40 is-code-background"><code class="hljs javascript" v-html="resultStringHighlighted"></code></pre>
       </div>
     </div>
     <div class="toggle-button is-hidden-desktop is-unselectable" @click="toggleView = !toggleView">
@@ -41,6 +41,7 @@ import CodeBoxs from './components/CodeBoxs'
 import examples from './data/examples'
 import users from './data/users'
 import products from './data/products'
+import hljs from 'highlight.js'
 
 export default {
   data () {
@@ -60,15 +61,23 @@ export default {
     usersString () {
       return 'var users = ' + JSON.stringify(this.users, null, '  ')
     },
+    usersStringHighlighted () {
+      return hljs.highlightAuto(this.usersString, ['javascript']).value
+    },
     productsString () {
       return 'var products = ' + JSON.stringify(this.products, null, '  ')
     },
+    productsStringHighlighted () {
+      return hljs.highlightAuto(this.productsString, ['javascript']).value
+    },
     resultString () {
       return JSON.stringify(this.result, null, '  ')
+    },
+    resultStringHighlighted () {
+      return hljs.highlightAuto(this.resultString, ['javascript']).value
     }
   },
-  ready () {},
-  attached () {},
+  mounted () {},
   methods: {
     run (code) {
       try {
@@ -101,7 +110,6 @@ export default {
       this.scrollArea = scrollArea
     },
     randomNewValue (length, oldValue) {
-      console.log('randomNewValue')
       let value = Math.floor(Math.random() * length)
       if (value === oldValue) {
         return this.randomNewValue(length, oldValue)

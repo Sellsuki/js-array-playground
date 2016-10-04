@@ -16,8 +16,6 @@ export default {
   },
   props: ['examples', 'run'],
   computed: {},
-  ready () {},
-  attached () {},
   methods: {},
   components: {
     CodeBox

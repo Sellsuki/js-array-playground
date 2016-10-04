@@ -14,8 +14,6 @@ export default {
   },
   props: ['code', 'run'],
   computed: {},
-  ready () {},
-  attached () {},
   methods: {},
   components: {}
 }
