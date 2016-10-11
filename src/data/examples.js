@@ -38,6 +38,11 @@ let examples = [
     title: 'Array.reverse()',
     content: 'เป็นการกลับการเรียงลำดับของ Array ค่าภายใน Array ยังอยู่เหมือนเดิม แค่กลับการเรียงลำดับเท่านั้น',
     code: 'users.reverse()'
+  },
+  {
+    title: 'Array.shift()',
+    content: 'เป็นการลบค่าลำดับเเรกของ Array ออก เเละ Return ตัวนั้น ',
+    code: 'users.shift()'
   }
 ]
 export default examples
