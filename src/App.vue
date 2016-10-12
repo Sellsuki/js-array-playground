@@ -4,6 +4,7 @@
     <div class="column is-4-desktop" :class="{'is-hidden-touch': toggleView}">
         <pre class="overflow-scroll-60 is-code-background"><code class="hljs javascript" v-html="usersStringHighlighted"></code>
           <code class="hljs javascript" v-html="productsStringHighlighted"></code>
+          <code class="hljs javascript" v-html="emojisStringHighlighted"></code>
         </pre>
       </div>
 
@@ -12,7 +13,7 @@
           <div class="content is-medium">
             <h1 class="title is-1">JavaScript Array Playground</h1>
             <hr>
-            <code-boxs :examples="examples" :run="run"></code-boxs>
+            <contents :contents="contents" :run="run"></contents>
             <center class="is-small">
               <a class="github-button" href="https://github.com/Sellsuki/js-array-playground" data-style="mega" data-count-href="/Sellsuki/js-array-playground/stargazers" data-count-api="/repos/Sellsuki/js-array-playground#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star Sellsuki/js-array-playground on GitHub">Star</a>
               <br><br>
@@ -37,8 +38,9 @@
 </template>
 
 <script>
-import CodeBoxs from './components/CodeBoxs'
-import examples from './data/examples'
+import Contents from './components/Contents'
+import contents from './data/contents'
+import emojis from './data/emojis'
 import users from './data/users'
 import products from './data/products'
 import hljs from 'highlight.js'
@@ -49,8 +51,8 @@ export default {
       isTop: true,
       toggleView: true,
       emojisIndex: 0,
-      emojis: ['🍺', '🍻', '🍶', '🍵', '☕️', '🍼', '💻', '👙', '🐶', '🎮', '💪'],
-      examples,
+      emojis: [...emojis],
+      contents: [...contents],
       users: [...users],
       products: [...products],
       result: 'output',
@@ -58,6 +60,12 @@ export default {
     }
   },
   computed: {
+    emojisString () {
+      return 'var emojis = ' + JSON.stringify(this.emojis, null, '  ')
+    },
+    emojisStringHighlighted () {
+      return hljs.highlightAuto(this.emojisString, ['javascript']).value
+    },
     usersString () {
       return 'var users = ' + JSON.stringify(this.users, null, '  ')
     },
@@ -118,7 +126,7 @@ export default {
     }
   },
   components: {
-    CodeBoxs
+    Contents
   }
 }
 </script>
@@ -170,15 +178,6 @@ $column-gap: 0px;
 }
 .content {
   padding: 10px 20px;
-}
-.input-code {
-  width: 100%;
-  max-width: 100%;
-  min-width: 100%;
-  border-radius: 3px;
-  border: 0px;
-  font-family: "Inconsolata", "Consolas", "Monaco", monospace;
-  font-size: 14px;
 }
 .round {
   border-radius: 3px;

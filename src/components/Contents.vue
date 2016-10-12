@@ -1,22 +1,22 @@
 <template lang="html">
   <div>
-    <div class="" v-for="example in examples">
-      <code-box :example="example" :run="run"></code-box>
+    <div class="" v-for="content in contents">
+      <topic :content="content" :run="run"></topic>
       <hr>
     </div>
   </div>
 </template>
 
 <script>
-import CodeBox from './CodeBox'
+import Topic from './Topic'
 
 export default {
   data () {
     return {}
   },
-  props: ['examples', 'run'],
+  props: ['contents', 'run'],
   components: {
-    CodeBox
+    Topic
   }
 }
 </script>
