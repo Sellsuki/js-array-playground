@@ -14,12 +14,7 @@
             <h1 class="title is-1">JavaScript Array Playground</h1>
             <hr>
             <contents :contents="contents" :run="run"></contents>
-            <center class="is-small">
-              <a class="github-button" href="https://github.com/Sellsuki/js-array-playground" data-style="mega" data-count-href="/Sellsuki/js-array-playground/stargazers" data-count-api="/repos/Sellsuki/js-array-playground#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star Sellsuki/js-array-playground on GitHub">Star</a>
-              <br><br>
-              Made with <a href="http://vuejs.org" target="_blank"><img class="vue-icon" src="https://vuejs.org/images/logo.png" alt="vue.js"/></a> and {{ emojis[emojisIndex] }}.
-            </center>
-            <br>
+            <content-footer :footerEmoji="footerEmoji"></content-footer>
           </div>
         </div>
       </div>
@@ -39,6 +34,7 @@
 
 <script>
 import Contents from './components/Contents'
+import ContentFooter from './components/ContentFooter'
 import contents from './data/contents'
 import emojis from './data/emojis'
 import users from './data/users'
@@ -83,6 +79,9 @@ export default {
     },
     resultStringHighlighted () {
       return hljs.highlightAuto(this.resultString, ['javascript']).value
+    },
+    footerEmoji () {
+      return this.emojis[this.emojisIndex]
     }
   },
   methods: {
@@ -126,7 +125,8 @@ export default {
     }
   },
   components: {
-    Contents
+    Contents,
+    ContentFooter
   }
 }
 </script>
