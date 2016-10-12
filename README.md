@@ -16,6 +16,9 @@ npm run dev
 # build for production with minification
 npm run build
 
+# deploy to firebase hosting
+npm run deploy
+
 # run unit tests
 npm run unit
 
