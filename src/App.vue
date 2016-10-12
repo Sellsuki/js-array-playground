@@ -169,6 +169,7 @@ $column-gap: 0px;
 }
 @media screen and (min-width: 980px) {
   .overflow-scroll-60, .overflow-scroll-40 {
+    border-top: 0px;
     height: 100vh;
     max-height: 100vh;
   }
