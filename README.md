@@ -1,6 +1,8 @@
 # js-array-playground
 
-> A Vue.js project
+> JavaScript Array Playground
+
+![JavaScript Array Playground](https://rawgit.com/Sellsuki/js-array-playground/master/ScreenShot.png)
 
 ## Build Setup
 
