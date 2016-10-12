@@ -1,6 +1,7 @@
 let contents = [
   {
     title: 'Array.filter()',
+    type: 'pure',
     description: 'เป็นการกรองข้อมูลใน array ด้วยเงื่อนไขที่กำหนด',
     examples: [
       {
@@ -13,6 +14,7 @@ let contents = [
   },
   {
     title: 'Array.find()',
+    type: 'pure',
     description: 'การทำงานจะคล้ายกับ filter แต่จะเป็นการหาข้อมูลใน array ด้วยเงื่อนไขที่กำหนด และจะ return ผลลัพท์ตัวแรกที่หาเจอออกมาเท่านั้น',
     examples: [
       {
@@ -22,6 +24,7 @@ let contents = [
   },
   {
     title: 'Array.map()',
+    type: 'pure',
     description: 'เป็นการสร้าง array ขึ้นมาใหม่จาก array เดิมโดย array ใหม่นั้นจะมีค่าจากการ return ค่าของ function ที่เราส่งเข้าไป',
     examples: [
       {
@@ -49,6 +52,7 @@ let contents = [
   },
   {
     title: 'Array.reverse()',
+    type: 'impure',
     description: 'เป็นการกลับการเรียงลำดับของ Array ค่าภายใน Array ยังอยู่เหมือนเดิม แค่กลับการเรียงลำดับเท่านั้น',
     examples: [
       {
@@ -58,6 +62,7 @@ let contents = [
   },
   {
     title: 'Array.shift()',
+    type: 'impure',
     description: 'เป็นการลบค่าลำดับเเรกของ Array ออก เเละ Return ตัวนั้น ',
     examples: [
       {

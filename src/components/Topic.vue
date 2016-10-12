@@ -1,6 +1,10 @@
 <template lang="html">
   <div>
-    <h1 class="title is-3 is-code-font"><b>{{ content.title }}</b></h1>
+    <h1 class="title is-3">
+      <b>{{ content.title }}</b>
+      <span v-if="content.type === 'pure'" class="tag is-warning is-medium">Pure</span>
+      <span v-if="content.type === 'impure'" class="tag is-danger is-medium">Impure</span>
+    </h1>
     <p>
       {{ content.description }}
     </p>
