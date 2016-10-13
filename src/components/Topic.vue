@@ -53,15 +53,13 @@ textarea {
 .button-group {
   background-color: #282c34;
   padding: 8px;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
+  border-radius: 0px 0px 3px 3px;
 }
 .input-code {
   width: 100%;
   max-width: 100%;
   min-width: 100%;
-  border-top-right-radius: 3px;
-  border-top-left-radius: 3px;
+  border-radius: 3px 3px 0px 0px;
   border: 0px;
   font-family: "Inconsolata", "Consolas", "Monaco", monospace;
   font-size: 14px;
