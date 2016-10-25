@@ -96,7 +96,13 @@ let contents = [
     description: 'เป็นการกลับการเรียงลำดับของ Array ค่าภายใน Array ยังอยู่เหมือนเดิม แค่กลับการเรียงลำดับเท่านั้น',
     examples: [
       {
+        code: 'emojis.reverse()'
+      },
+      {
         code: 'users.reverse()'
+      },
+      {
+        code: 'products.reverse()'
       }
     ]
   },
