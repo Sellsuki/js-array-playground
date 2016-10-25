@@ -14,7 +14,8 @@
     "deploy": "npm run build && firebase deploy"
   },
   "dependencies": {
-    "vue": "^2.0.1"
+    "vue": "^2.0.1",
+    "vue-codemirror": "git+https://github.com/n9ti/vue-codemirror.git"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",
@@ -44,7 +45,6 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
     "function-bind": "^1.0.2",
-    "highlight.js": "^9.7.0",
     "html-webpack-plugin": "^2.8.1",
     "http-proxy-middleware": "^0.17.2",
     "inject-loader": "^2.0.1",

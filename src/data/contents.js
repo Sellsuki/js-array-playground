@@ -5,10 +5,10 @@ let contents = [
     description: 'เป็นการกรองข้อมูลใน array ด้วยเงื่อนไขที่กำหนด',
     examples: [
       {
-        code: 'users.filter(user => user.age > 13)'
+        code: 'users.filter(\n\tuser => user.age > 13)'
       },
       {
-        code: 'users.filter(user => user.gender === "female")'
+        code: 'users.filter(\n\tuser => user.gender === "female")'
       }
     ]
   },
@@ -18,7 +18,7 @@ let contents = [
     description: 'การทำงานจะคล้ายกับ filter แต่จะเป็นการหาข้อมูลใน array ด้วยเงื่อนไขที่กำหนด และจะ return ผลลัพท์ตัวแรกที่หาเจอออกมาเท่านั้น',
     examples: [
       {
-        code: 'users.find(user => user.age > 13)'
+        code: 'users.find(\n\tuser => user.age > 13)'
       }
     ]
   },
@@ -28,16 +28,16 @@ let contents = [
     description: 'เป็นการสร้าง array ขึ้นมาใหม่จาก array เดิมโดย array ใหม่นั้นจะมีค่าจากการ return ค่าของ function ที่เราส่งเข้าไป',
     examples: [
       {
-        code: 'users.map(user => user)'
+        code: 'users.map(\n\tuser => user)'
       },
       {
-        code: 'users.map(user => user.gender)'
+        code: 'users.map(\n\tuser => user.gender)'
       },
       {
-        code: 'users.map(user => user.name + \' age \' + user.age)'
+        code: 'users.map(\n\tuser => \n\t\tuser.name + \' age \' + user.age)'
       },
       {
-        code: 'users.map(user => user.gender).length'
+        code: 'users.map(\n\tuser => user.gender).length'
       }
     ]
   },
@@ -47,16 +47,16 @@ let contents = [
     description: 'ในแต่ละรอบของการทำงาน ค่าที่ถูก return จาก callback จะถูกสะสมไปเรื่อยๆ และ return ค่าสุดท้ายออกมา',
     examples: [
       {
-        code: 'users.reduce((previousValue, currentValue) => previousValue + currentValue.age, 0)'
+        code: 'users.reduce(\n\t(previousValue, currentValue) => \n\t\tpreviousValue + currentValue.age, 0)'
       },
       {
-        code: 'users.reduce((sumAge, user) => sumAge + user.age, 0)'
+        code: 'users.reduce(\n\t(sumAge, user) => \n\t\tsumAge + user.age, 0)'
       },
       {
-        code: 'emojis.reduce((result, emoji) => result + emoji, "")'
+        code: 'emojis.reduce(\n\t(result, emoji) => \n\t\tresult + emoji, "")'
       },
       {
-        code: 'products.reduce((sumPrice, product) => sumPrice + product.price, 0)'
+        code: 'products.reduce(\n\t(sumPrice, product) => \n\t\tsumPrice + product.price, 0)'
       }
     ]
   },
@@ -65,7 +65,7 @@ let contents = [
     description: 'เราสามารถเอามันมาต่อกันได้ด้วย',
     examples: [
       {
-        code: 'users.filter(user => user.gender === \'female\').map(user => user.username)'
+        code: 'users.filter(\n\tuser => \n\t\tuser.gender === \'female\')\n\t\t\t.map(user => user.username)'
       }
     ]
   },
@@ -85,7 +85,13 @@ let contents = [
     description: 'เป็นการลบค่าลำดับเเรกของ Array ต้นฉบับออก และ Return ค่านั้นออกมา',
     examples: [
       {
+        code: 'emojis.shift()'
+      },
+      {
         code: 'users.shift()'
+      },
+      {
+        code: 'products.shift()'
       }
     ]
   },
@@ -95,7 +101,13 @@ let contents = [
     description: 'เป็นการลบค่าลำดับสุดท้ายของ Array ต้นฉบับออก และ Return ค่านั้นออกมา',
     examples: [
       {
+        code: 'emojis.pop()'
+      },
+      {
         code: 'users.pop()'
+      },
+      {
+        code: 'products.pop()'
       }
     ]
   }

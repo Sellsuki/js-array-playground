@@ -10,9 +10,11 @@
     </p>
 
     <div v-for="example in examples">
-      <textarea v-model="example.code" class="hljs javascript input-code" rows="2"></textarea>
-      <div class="button-group">
-        <run-button :code="example.code" :run="run"></run-button>
+      <div class="code-container">
+        <codemirror v-model="example.code" :options="editorOption"></codemirror>
+        <div class="button-group">
+          <run-button :code="example.code" :run="run"></run-button>
+        </div>
       </div>
       <br>
     </div>
@@ -21,11 +23,19 @@
 </template>
 
 <script>
+import { codemirror } from 'vue-codemirror'
 import RunButton from './RunButton'
 
 export default {
   data () {
     return {
+      editorOption: {
+        tabSize: 2,
+        mode: 'text/javascript',
+        theme: 'material',
+        lineNumbers: true,
+        line: true
+      }
     }
   },
   props: ['content', 'run'],
@@ -38,30 +48,21 @@ export default {
     }
   },
   components: {
+    codemirror,
     RunButton
   }
 }
 </script>
 
-<style lang="css">
-textarea {
-  resize: none;
-  white-space: pre;
-  overflow-wrap: normal;
-  overflow-x: scroll;
+<style lang="css" scoped>
+.code-container {
+  border-radius: 3px 3px 3px 3px;
+  padding-top: 3px;
+  background: #263238;
 }
 .button-group {
   background-color: #282c34;
   padding: 8px;
   border-radius: 0px 0px 3px 3px;
-}
-.input-code {
-  width: 100%;
-  max-width: 100%;
-  min-width: 100%;
-  border-radius: 3px 3px 0px 0px;
-  border: 0px;
-  font-family: "Inconsolata", "Consolas", "Monaco", monospace;
-  font-size: 14px;
 }
 </style>

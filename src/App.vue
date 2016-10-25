@@ -1,11 +1,10 @@
 <template>
   <section class="is-fullheight">
     <div class="columns is-marginless is-gapless is-desktop">
-    <div class="column is-4-desktop" :class="{'is-hidden-touch': toggleView}">
-        <pre class="overflow-scroll-60 is-code-background"><code class="hljs javascript" v-html="usersStringHighlighted"></code>
-          <code class="hljs javascript" v-html="productsStringHighlighted"></code>
-          <code class="hljs javascript" v-html="emojisStringHighlighted"></code>
-        </pre>
+      <div class="column is-4-desktop is-code-background" :class="{'is-hidden-touch': toggleView}">
+        <div class="overflow-scroll-60">
+          <codemirror :code="inputString" :options="editorOption"></codemirror>
+        </div>
       </div>
 
       <div class="column is-4-desktop" :class="{'is-hidden-touch': !toggleView}">
@@ -19,9 +18,10 @@
         </div>
       </div>
 
-      <div class="column is-4-desktop">
-        <pre class="overflow-scroll-40 is-code-background"><code class="hljs javascript" v-html="resultStringHighlighted"></code>
-        </pre>
+      <div class="column is-4-desktop is-code-background">
+        <div class="overflow-scroll-40">
+          <codemirror class="is-code-background" :code="resultString" :options="editorOption"></codemirror>
+        </div>
       </div>
     </div>
     <div class="toggle-button is-hidden-desktop is-unselectable" @click="toggleView = !toggleView">
@@ -39,7 +39,7 @@ import contents from './data/contents'
 import emojis from './data/emojis'
 import users from './data/users'
 import products from './data/products'
-import hljs from 'highlight.js'
+import { codemirror } from 'vue-codemirror'
 
 export default {
   data () {
@@ -52,33 +52,32 @@ export default {
       users: [...users],
       products: [...products],
       result: 'output',
-      scrollArea: 'TOP'
+      scrollArea: 'TOP',
+      editorOption: {
+        tabSize: 2,
+        mode: 'text/javascript',
+        theme: 'material',
+        lineNumbers: true,
+        line: true,
+        readOnly: true
+      }
     }
   },
   computed: {
+    inputString () {
+      return this.emojisString + '\n' + this.usersString + '\n' + this.productsString
+    },
     emojisString () {
       return 'var emojis = ' + JSON.stringify(this.emojis, null, '  ')
-    },
-    emojisStringHighlighted () {
-      return hljs.highlightAuto(this.emojisString, ['javascript']).value
     },
     usersString () {
       return 'var users = ' + JSON.stringify(this.users, null, '  ')
     },
-    usersStringHighlighted () {
-      return hljs.highlightAuto(this.usersString, ['javascript']).value
-    },
     productsString () {
       return 'var products = ' + JSON.stringify(this.products, null, '  ')
     },
-    productsStringHighlighted () {
-      return hljs.highlightAuto(this.productsString, ['javascript']).value
-    },
     resultString () {
       return JSON.stringify(this.result, null, '  ')
-    },
-    resultStringHighlighted () {
-      return hljs.highlightAuto(this.resultString, ['javascript']).value
     },
     footerEmoji () {
       return this.emojis[this.emojisIndex]
@@ -126,7 +125,8 @@ export default {
   },
   components: {
     Contents,
-    ContentFooter
+    ContentFooter,
+    codemirror
   }
 }
 </script>
@@ -134,8 +134,10 @@ export default {
 <style lang="scss">
 $column-gap: 0px;
 @import '~bulma';
-@import "../node_modules/highlight.js/styles/atom-one-dark";
 
+.CodeMirror {
+  height: auto !important;
+}
 .toggle-button {
   display: block;
   position: fixed;
@@ -146,6 +148,7 @@ $column-gap: 0px;
   background: rgba(100, 100, 100, 0.2);
   padding: 2px 8px;
   cursor: pointer;
+  z-index: 2000;
 }
 .toggle-button:hover {
   background: rgba(100, 100, 100, 0.5);
@@ -160,22 +163,22 @@ $column-gap: 0px;
   overflow-y: scroll;
 }
 .overflow-scroll-60{
-  height: 60vh;
-  max-height: 60vh;
+  height: 60vh !important;
+  max-height: 60vh !important;
 }
 .overflow-scroll-40{
-  height: 40vh;
-  max-height: 40vh;
+  height: 40vh !important;
+  max-height: 40vh !important;
 }
 @media screen and (min-width: 980px) {
   .overflow-scroll-60, .overflow-scroll-40 {
     border-top: 0px;
-    height: 100vh;
-    max-height: 100vh;
+    height: 100vh !important;
+    max-height: 100vh !important;
   }
 }
 .is-code-background {
-  background-color: #282c34;
+  background-color: #263238;
 }
 .content {
   padding: 10px 20px;
