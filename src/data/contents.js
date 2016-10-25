@@ -5,10 +5,22 @@ let contents = [
     description: 'เป็นการกรองข้อมูลใน array ด้วยเงื่อนไขที่กำหนด',
     examples: [
       {
+        code: 'emojis.filter(\n\temoji => emoji === "🐶")'
+      },
+      {
+        code: 'emojis.filter(\n\temoji => emoji >= "🐶")'
+      },
+      {
         code: 'users.filter(\n\tuser => user.age > 13)'
       },
       {
         code: 'users.filter(\n\tuser => user.gender === "female")'
+      },
+      {
+        code: 'products.filter(\n\tproduct => product.price < 20000)'
+      },
+      {
+        code: 'products.filter(\n\tproduct => product.price > 20000 \n\t&& product.price < 30000)'
       }
     ]
   },
@@ -18,7 +30,13 @@ let contents = [
     description: 'การทำงานจะคล้ายกับ filter แต่จะเป็นการหาข้อมูลใน array ด้วยเงื่อนไขที่กำหนด และจะ return ผลลัพท์ตัวแรกที่หาเจอออกมาเท่านั้น',
     examples: [
       {
+        code: 'emojis.find(\n\temoji => emoji === "🐶")'
+      },
+      {
         code: 'users.find(\n\tuser => user.age > 13)'
+      },
+      {
+        code: 'products.find(\n\tproduct => product.price < 20000)'
       }
     ]
   },
@@ -27,6 +45,9 @@ let contents = [
     type: 'pure',
     description: 'เป็นการสร้าง array ขึ้นมาใหม่จาก array เดิมโดย array ใหม่นั้นจะมีค่าจากการ return ค่าของ function ที่เราส่งเข้าไป',
     examples: [
+      {
+        code: 'emojis.map(\n\temoji => \n\t\t\'Char code of \' + emoji + \' is \' + emoji.charCodeAt(0))'
+      },
       {
         code: 'users.map(\n\tuser => user)'
       },
@@ -50,10 +71,10 @@ let contents = [
         code: 'users.reduce(\n\t(previousValue, currentValue) => \n\t\tpreviousValue + currentValue.age, 0)'
       },
       {
-        code: 'users.reduce(\n\t(sumAge, user) => \n\t\tsumAge + user.age, 0)'
+        code: 'users.reduce(\n\t/* ลองเปลี่ยนชื่อ params */\n\t(sumAge, user) => \n\t\tsumAge + user.age, 0)'
       },
       {
-        code: 'emojis.reduce(\n\t(result, emoji) => \n\t\tresult + emoji, "")'
+        code: 'emojis.reduce(\n\t(result, emoji) => \n\t\tresult + \'💥\' + emoji, "")'
       },
       {
         code: 'products.reduce(\n\t(sumPrice, product) => \n\t\tsumPrice + product.price, 0)'
