@@ -45,7 +45,7 @@ export default {
   data () {
     return {
       isTop: true,
-      toggleView: true,
+      toggleView: false,
       emojisIndex: 0,
       emojis: [...emojis],
       contents: [...contents],
