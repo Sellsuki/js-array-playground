@@ -5,7 +5,7 @@ let contents = [
     description: 'เป็นการกรองข้อมูลใน array ด้วยเงื่อนไขที่กำหนด',
     examples: [
       {
-        code: 'emojis.filter(\n\temoji => emoji === "🐶")'
+        code: '/* ลองแก้ code ดูได้เลย */\nemojis.filter(\n\temoji => emoji === "🐶")\n/* แล้วก็กดปุ่ม ▶ Run ด้านล่างนี้ */'
       },
       {
         code: 'emojis.filter(\n\temoji => emoji >= "🐶")'
