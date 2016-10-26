@@ -1,14 +1,16 @@
 <template>
   <section class="is-fullheight">
     <div class="columns is-marginless is-gapless is-desktop">
-      <div class="column is-4-desktop is-code-background" :class="{'is-hidden-touch': toggleView}">
-        <div class="overflow-scroll-60">
+      <!-- <div class="column is-4-desktop is-code-background" :class="{'is-hidden-touch': toggleView}"> -->
+      <div class="column is-4-desktop is-code-background">
+        <div class="overflow-scroll-30">
           <codemirror :code="inputString" :options="editorOption"></codemirror>
         </div>
       </div>
 
-      <div class="column is-4-desktop" :class="{'is-hidden-touch': !toggleView}">
-        <div class="overflow-scroll-60" @scroll="handleScroll">
+      <!-- <div class="column is-4-desktop" :class="{'is-hidden-touch': !toggleView}"> -->
+      <div class="column is-4-desktop">
+        <div class="overflow-scroll-40" @scroll="handleScroll">
           <div class="content is-medium">
             <h1 class="title is-1">JavaScript Array Playground</h1>
             <hr>
@@ -19,16 +21,16 @@
       </div>
 
       <div class="column is-4-desktop is-code-background">
-        <div class="overflow-scroll-40">
+        <div class="overflow-scroll-30">
           <codemirror class="is-code-background" :code="resultString" :options="editorOption"></codemirror>
         </div>
       </div>
     </div>
-    <div class="toggle-button is-hidden-desktop is-unselectable" @click="toggleView = !toggleView">
+    <!-- <div class="toggle-button is-hidden-desktop is-unselectable" @click="toggleView = !toggleView">
       <span v-if="isTop && toggleView">Show Input</span>
       <i v-if="!isTop && toggleView" class="fa fa-code" aria-hidden="true"></i>
       <i v-if="!toggleView" class="fa fa-book" aria-hidden="true"></i>
-    </div>
+    </div> -->
   </section>
 </template>
 
@@ -45,7 +47,7 @@ export default {
   data () {
     return {
       isTop: true,
-      toggleView: false,
+      toggleView: true,
       emojisIndex: 0,
       emojis: [...emojis],
       contents: [...contents],
@@ -145,19 +147,20 @@ $column-gap: 0px;
   top: 10px;
   border-radius: 3px;
   text-align: center;
-  background: rgba(100, 100, 100, 0.2);
+  background: rgba(255, 255, 255, 0.8);
   padding: 2px 8px;
   cursor: pointer;
   z-index: 2000;
+  border: 2px solid #FEDC62;
 }
 .toggle-button:hover {
-  background: rgba(100, 100, 100, 0.5);
+  background: rgba(255, 255, 255, 1.0);
 }
 
 *:focus {
   outline: none;
 }
-.overflow-scroll-60, .overflow-scroll-40 {
+.overflow-scroll-60, .overflow-scroll-40, .overflow-scroll-30 {
   border-top: 1px solid #EEE;
   -webkit-overflow-scrolling: touch;
   overflow-y: scroll;
@@ -170,8 +173,12 @@ $column-gap: 0px;
   height: 40vh !important;
   max-height: 40vh !important;
 }
+.overflow-scroll-30{
+  height: 30vh !important;
+  max-height: 30vh !important;
+}
 @media screen and (min-width: 980px) {
-  .overflow-scroll-60, .overflow-scroll-40 {
+  .overflow-scroll-60, .overflow-scroll-40, .overflow-scroll-30 {
     border-top: 0px;
     height: 100vh !important;
     max-height: 100vh !important;
