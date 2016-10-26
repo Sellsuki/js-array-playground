@@ -93,7 +93,7 @@ let contents = [
   {
     title: 'Array.sort()',
     type: 'impure',
-    description: 'เป็นการเรียงลำดับค่าของ Array',
+    description: 'เป็นการเรียงลำดับค่าของ Array สามารถกำหนดเงื่อนไขการเรียงลำดับได้',
     examples: [
       {
         code: 'emojis.sort()'
@@ -103,6 +103,12 @@ let contents = [
       },
       {
         code: 'products.sort()'
+      },
+      {
+        code: '/*เรียงตาม name*/\nusers.sort((a, b) => (a.name - b.name))'
+      },
+      {
+        code: '/*เรียงตาม price*/\nproducts.sort((a, b) => (a.price - b.price))'
       }
     ]
   },
