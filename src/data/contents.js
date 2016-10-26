@@ -91,6 +91,22 @@ let contents = [
     ]
   },
   {
+    title: 'Array.sort()',
+    type: 'impure',
+    description: 'เป็นการกลับการเรียงลำดับค่าของ Array แต่ค่าภายใน Array ยังอยู่เหมือนเดิม',
+    examples: [
+      {
+        code: 'emojis.sort()'
+      },
+      {
+        code: 'users.sort()'
+      },
+      {
+        code: 'products.sort()'
+      }
+    ]
+  },
+  {
     title: 'Array.reverse()',
     type: 'impure',
     description: 'เป็นการกลับการเรียงลำดับของ Array ค่าภายใน Array ยังอยู่เหมือนเดิม แค่กลับการเรียงลำดับเท่านั้น',
