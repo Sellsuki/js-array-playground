@@ -91,6 +91,7 @@ export default {
         /*eslint-enable */
         if (result) {
           this.result = result
+          console.log(this.result)
         } else {
           this.result = 'undefined'
         }
