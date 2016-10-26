@@ -93,7 +93,7 @@ let contents = [
   {
     title: 'Array.sort()',
     type: 'impure',
-    description: 'เป็นการกลับการเรียงลำดับค่าของ Array แต่ค่าภายใน Array ยังอยู่เหมือนเดิม',
+    description: 'เป็นการเรียงลำดับค่าของ Array',
     examples: [
       {
         code: 'emojis.sort()'
