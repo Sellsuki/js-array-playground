@@ -1,6 +1,8 @@
 # js-array-playground
 
-> A Vue.js project
+> JavaScript Array Playground
+
+![JavaScript Array Playground](https://rawgit.com/Sellsuki/js-array-playground/master/ScreenShot.png)
 
 ## Build Setup
 
@@ -13,6 +15,9 @@ npm run dev
 
 # build for production with minification
 npm run build
+
+# deploy to firebase hosting
+npm run deploy
 
 # run unit tests
 npm run unit
