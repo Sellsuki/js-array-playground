@@ -211,10 +211,29 @@ let contents = [
     description: 'เป็นการนำ Array 2 ชุด หรือมากกว่านั้น รวมเป็น Array ชุดเดียว',
     examples: [
       {
-        code: 'emojis.concat(users)'
+        code: '//นำตัวแปรที่เป็น Array อยู่แล้วมาต่อกับ ตัวแปรที่เป็น Array อีกชุด\nemojis.concat(users)'
       },
       {
-        code: 'empty.concat(["🇹🇭", "🇰🇷", "🇯🇵"], ["🐶","🎮","💪"])'
+        code: '//มากกว่า 2 ชุดก็ได้\nempty.concat(users, emojis)'
+      },
+      {
+        code: '//ราม Array 3 ชุด เป็น Array ชุดเดียว\n//โดยไม่ต้องมีตัวแปรก็ได้\n[].concat(["🇹🇭", "🇰🇷", "🇯🇵"], emojis, ["🇹🇭", "🇰🇷", "🇯🇵"])'
+      }
+    ]
+  },
+  {
+    title: 'Array.slice()',
+    type: 'pure',
+    description: 'รีเทิร์นค่าตามตำแหน่งที่เลือกใน array มาในรูปของ array ชุดใหม่ โดยไม่กระทบกับตัวแปรตั้งต้น',
+    examples: [
+      {
+        code: '// คืนค่าทั้งหมดใน emojis \nemojis.slice()'
+      },
+      {
+        code: '// คืนค่าตั้งแต่ตำแหน่งที่ 3 ถึงตำแหน่งสุดท้ายใน emojis \nemojis.slice(3)'
+      },
+      {
+        code: '// คืนค่าตั้งแต่ตำแหน่งที่ 3 ถึงตำแหน่งที่ 4 ใน emojis \nemojis.slice(3, 4)'
       }
     ]
   }
