@@ -49,6 +49,7 @@ export default {
       isTop: true,
       toggleView: true,
       emojisIndex: 0,
+      empty: [],
       emojis: [...emojis],
       contents: [...contents],
       users: [...users],
@@ -62,12 +63,22 @@ export default {
         lineNumbers: true,
         line: true,
         readOnly: true
-      }
+      },
+      varName: ['empty', 'emojis', 'users', 'products']
     }
   },
   computed: {
     inputString () {
-      return this.emojisString + '\n' + this.usersString + '\n' + this.productsString
+      return `${this.arrayEmptyString}
+
+${this.emojisString}
+
+${this.usersString}
+
+${this.productsString}`
+    },
+    arrayEmptyString () {
+      return 'var empty = ' + JSON.stringify(this.empty)
     },
     emojisString () {
       return 'var emojis = ' + JSON.stringify(this.emojis, null, '  ')
@@ -89,7 +100,7 @@ export default {
     run (code) {
       try {
         /*eslint-disable */
-        let result = eval('this.'+ code)
+        let result = eval(this.preprocessCode(code))
         /*eslint-enable */
         if (result) {
           this.result = result
@@ -123,6 +134,14 @@ export default {
       } else {
         return value
       }
+    },
+    preprocessCode (code) {
+      let processedCode = '' + code
+      this.varName.forEach(name => {
+        let reg = new RegExp('(' + name + ')', 'g')
+        processedCode = processedCode.replace(reg, 'this.$1')
+      })
+      return processedCode
     }
   },
   components: {
