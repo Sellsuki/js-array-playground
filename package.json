@@ -14,8 +14,9 @@
     "deploy": "npm run build && firebase deploy"
   },
   "dependencies": {
+    "node-sass": "^3.11.2",
     "vue": "^2.0.1",
-    "vue-codemirror": "git+https://github.com/n9ti/vue-codemirror.git"
+    "vue-codemirror": "git+https://github.com/n9ti/vue-codemirror.git#v2.1.2"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",
