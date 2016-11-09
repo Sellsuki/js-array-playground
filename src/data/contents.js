@@ -179,7 +179,7 @@ let contents = [
   {
     title: 'Array.splice()',
     type: 'impure',
-    description: 'เป็นการค่าของ Array โดยการลบหรือแทรกค่าใหม่ลงไปยังตำแหน่งที่ต้องการ',
+    description: 'เป็นการเปลี่ยนค่าของ Array โดยการลบหรือแทรกค่าใหม่ลงไปยังตำแหน่งที่ต้องการ',
     examples: [
       {
         code: '/*แทรกค่าลงไปยังตำแหน่งที่ 2*/\n emojis.splice(2, 0,\n\t "👍", "👊", "✊", "✌️", "👌", "✋")'
@@ -202,6 +202,19 @@ let contents = [
       },
       {
         code: 'emojis.join("|")'
+      }
+    ]
+  },
+  {
+    title: 'Array.concat()',
+    type: 'pure',
+    description: 'เป็นการนำ Array 2 ชุด หรือมากกว่านั้น รวมเป็น Array ชุดเดียว',
+    examples: [
+      {
+        code: 'emojis.concat(users)'
+      },
+      {
+        code: 'empty.concat(["🇹🇭", "🇰🇷", "🇯🇵"], ["🐶","🎮","💪"])'
       }
     ]
   }
