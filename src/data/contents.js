@@ -252,6 +252,16 @@ let contents = [
         code: '// คืนค่าตั้งแต่ตำแหน่งที่ 3 ถึงตำแหน่งที่ 4 ใน emojis \nemojis.slice(3, 4)'
       }
     ]
+  },
+  {
+    title: 'Array.toString()',
+    type: 'pure',
+    description: 'รีเทิร์นค่าตามตำแหน่งที่ใน array มาในรูปของ String เรียงต่อกันไป',
+    examples: [
+      {
+        code: '// คืนค่าทั้งหมดใน emojis \nemojis.toString()'
+      }
+    ]
   }
 ]
 export default contents
