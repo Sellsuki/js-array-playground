@@ -121,10 +121,10 @@ let contents = [
         code: 'products.sort()'
       },
       {
-        code: '/*เรียงตาม name*/\nusers.sort((a, b) => (a.name - b.name))'
+        code: '/*เรียงตาม name*/\nusers.sort(\n\t(a, b) => (a.name > b.name))'
       },
       {
-        code: '/*เรียงตาม price*/\nproducts.sort((a, b) => (a.price - b.price))'
+        code: '/*เรียงตาม price*/\nproducts.sort(\n\t(a, b) => (a.price > b.price))'
       }
     ]
   },
