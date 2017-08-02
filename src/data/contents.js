@@ -262,6 +262,16 @@ let contents = [
         code: '// คืนค่าทั้งหมดใน emojis \nemojis.toString()'
       }
     ]
+  },
+  {
+    title: 'Copy Array',
+    type: 'pure',
+    description: 'Copy Array แบบ pure ๆ',
+    examples: [
+      {
+        code: '// Copy emojis array \nvar copyEmojis = [...emojis]\n// ลอง push ข้อมูลใส่ emoji\nemojis.push(\'🏀\')\ncopyEmojis'
+      }
+    ]
   }
 ]
 export default contents
