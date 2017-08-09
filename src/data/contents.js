@@ -269,7 +269,10 @@ let contents = [
     description: 'Copy Array แบบ pure ๆ',
     examples: [
       {
-        code: '// Copy emojis array \nvar copyEmojis = [...emojis]\n// ลอง push ข้อมูลใส่ emoji\nemojis.push(\'🏀\')\ncopyEmojis'
+        code: '// Copy emojis array \nvar copyEmojis = [...emojis]\n// ลอง push ข้อมูลใส่ emoji\ncopyEmojis.push(\'🏀\')\ncopyEmojis'
+      },
+      {
+        code: '// ใช้ [].concat ก็ได้\nvar copyEmojisAgain = [].concat(emojis)\n// ลอง push ข้อมูลใส่ emoji\ncopyEmojisAgain.push(\'🏀\')\ncopyEmojisAgain'
       }
     ]
   }
