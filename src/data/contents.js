@@ -161,6 +161,19 @@ let contents = [
     ]
   },
   {
+    title: 'Push',
+    type: 'pure',
+    description: 'เราสามารถใช้ push แบบ pure ๆ ได้โดย',
+    examples: [
+      {
+        code: '// ใช้ spread operator\nvar newEmojis = [...emojis, \'🏀\']\n// ลอง push ข้อมูลใส่ array\nnewEmojis.push(\'🏀\')\nnewEmojis'
+      },
+      {
+        code: '// ใช้ concat ก็ได้\nvar newEmojisAgain = [].concat(emojis, \'👍\')\n// ลอง push ข้อมูลใส่ array\nnewEmojisAgain.push(\'🏀\')\nnewEmojisAgain'
+      }
+    ]
+  },
+  {
     title: 'Array.shift()',
     type: 'impure',
     description: 'เป็นการลบค่าลำดับเเรกของ Array ต้นฉบับออก และ Return ค่านั้นออกมา',
