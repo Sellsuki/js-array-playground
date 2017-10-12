@@ -1,5 +1,25 @@
 # js-array-playground
 
+> A Vue.js project for Experimenting NEW Array and Arrow function from ES6
+
+----------------------------------------
+## Content
+* Array.filter()
+* Array.find()
+* Array.findIndex()
+* Array.map()
+* Array.reduce()
+* Array.filter().map()
+* Array.sort()
+* Array.reverse()
+* Array.push()
+* Array.shift()
+* Array.pop()
+* Array.splice()
+* Array.join()
+* Array.concat()
+* Array.slice()
+
 > JavaScript Array Playground
 
 ![JavaScript Array Playground](https://rawgit.com/Sellsuki/js-array-playground/master/ScreenShot.png)
