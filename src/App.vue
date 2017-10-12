@@ -1,46 +1,47 @@
 <template>
   <section class="is-fullheight">
     <div class="columns is-marginless is-gapless is-desktop">
-    <div class="column is-4-desktop" :class="{'is-hidden-touch': toggleView}">
-        <pre class="overflow-scroll-60 is-code-background">
-          <code class="hljs javascript">{{{usersString| highlight 'javascript'}}}</code>
-          <code class="hljs javascript">{{{productsString| highlight 'javascript'}}}</code>
-        </pre>
+      <!-- <div class="column is-4-desktop is-code-background" :class="{'is-hidden-touch': toggleView}"> -->
+      <div class="column is-4-desktop is-code-background">
+        <div class="overflow-scroll-30">
+          <codemirror :code="inputString" :options="editorOption"></codemirror>
+        </div>
       </div>
 
-      <div class="column is-4-desktop" :class="{'is-hidden-touch': !toggleView}">
-        <div class="overflow-scroll-60" @scroll="handleScroll">
+      <!-- <div class="column is-4-desktop" :class="{'is-hidden-touch': !toggleView}"> -->
+      <div class="column is-4-desktop">
+        <div class="overflow-scroll-40" @scroll="handleScroll">
           <div class="content is-medium">
             <h1 class="title is-1">JavaScript Array Playground</h1>
             <hr>
-            <code-boxs :examples="examples" :run="run"></code-boxs>
-            <center class="is-small">
-              <a class="github-button" href="https://github.com/Sellsuki/js-array-playground" data-style="mega" data-count-href="/Sellsuki/js-array-playground/stargazers" data-count-api="/repos/Sellsuki/js-array-playground#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star Sellsuki/js-array-playground on GitHub">Star</a>
-              <br><br>
-              แอบทำด้วย <a href="http://vuejs.org" target="_blank"><img class="vue-icon" src="https://vuejs.org/images/logo.png" alt="vue.js"/></a> และ {{ emojis[emojisIndex] }} ที่ออฟฟิศ Sellsuki.
-            </center>
-            <br>
+            <contents :contents="contents" :run="run"></contents>
+            <content-footer :footerEmoji="footerEmoji"></content-footer>
           </div>
         </div>
       </div>
 
-      <div class="column is-4-desktop">
-        <pre class="overflow-scroll-40 is-code-background"><code class="hljs javascript">{{{resultString | highlight 'javascript'}}}</code></pre>
+      <div class="column is-4-desktop is-code-background">
+        <div class="overflow-scroll-30">
+          <codemirror class="is-code-background" :code="resultString" :options="editorOption"></codemirror>
+        </div>
       </div>
     </div>
-    <div class="toggle-button is-hidden-desktop is-unselectable" @click="toggleView = !toggleView">
+    <!-- <div class="toggle-button is-hidden-desktop is-unselectable" @click="toggleView = !toggleView">
       <span v-if="isTop && toggleView">Show Input</span>
       <i v-if="!isTop && toggleView" class="fa fa-code" aria-hidden="true"></i>
       <i v-if="!toggleView" class="fa fa-book" aria-hidden="true"></i>
-    </div>
+    </div> -->
   </section>
 </template>
 
 <script>
-import CodeBoxs from './components/CodeBoxs'
-import examples from './data/examples'
+import Contents from './components/Contents'
+import ContentFooter from './components/ContentFooter'
+import contents from './data/contents'
+import emojis from './data/emojis'
 import users from './data/users'
 import products from './data/products'
+import { codemirror } from 'vue-codemirror'
 
 export default {
   data () {
@@ -48,15 +49,40 @@ export default {
       isTop: true,
       toggleView: true,
       emojisIndex: 0,
-      emojis: ['🍺', '🍻', '🍶', '🍵', '☕️', '🍼', '💻', '👙', '🐶', '🎮', '💪'],
-      examples,
+      empty: [],
+      emojis: [...emojis],
+      contents: [...contents],
       users: [...users],
       products: [...products],
       result: 'output',
-      scrollArea: 'TOP'
+      scrollArea: 'TOP',
+      editorOption: {
+        tabSize: 2,
+        mode: 'text/javascript',
+        theme: 'material',
+        lineNumbers: true,
+        line: true,
+        readOnly: true
+      },
+      varName: ['empty', 'emojis', 'users', 'products']
     }
   },
   computed: {
+    inputString () {
+      return `${this.arrayEmptyString}
+
+${this.emojisString}
+
+${this.usersString}
+
+${this.productsString}`
+    },
+    arrayEmptyString () {
+      return 'var empty = ' + JSON.stringify(this.empty)
+    },
+    emojisString () {
+      return 'var emojis = ' + JSON.stringify(this.emojis, null, '  ')
+    },
     usersString () {
       return 'var users = ' + JSON.stringify(this.users, null, '  ')
     },
@@ -65,15 +91,16 @@ export default {
     },
     resultString () {
       return JSON.stringify(this.result, null, '  ')
+    },
+    footerEmoji () {
+      return this.emojis[this.emojisIndex]
     }
   },
-  ready () {},
-  attached () {},
   methods: {
     run (code) {
       try {
         /*eslint-disable */
-        let result = eval('this.'+ code)
+        let result = eval(this.preprocessCode(code))
         /*eslint-enable */
         if (result) {
           this.result = result
@@ -101,17 +128,26 @@ export default {
       this.scrollArea = scrollArea
     },
     randomNewValue (length, oldValue) {
-      console.log('randomNewValue')
       let value = Math.floor(Math.random() * length)
       if (value === oldValue) {
         return this.randomNewValue(length, oldValue)
       } else {
         return value
       }
+    },
+    preprocessCode (code) {
+      let processedCode = '' + code
+      this.varName.forEach(name => {
+        let reg = new RegExp('(' + name + ')', 'g')
+        processedCode = processedCode.replace(reg, 'this.$1')
+      })
+      return processedCode
     }
   },
   components: {
-    CodeBoxs
+    Contents,
+    ContentFooter,
+    codemirror
   }
 }
 </script>
@@ -119,8 +155,10 @@ export default {
 <style lang="scss">
 $column-gap: 0px;
 @import '~bulma';
-@import "../node_modules/highlight.js/styles/atom-one-dark";
 
+.CodeMirror {
+  height: auto !important;
+}
 .toggle-button {
   display: block;
   position: fixed;
@@ -128,49 +166,48 @@ $column-gap: 0px;
   top: 10px;
   border-radius: 3px;
   text-align: center;
-  background: rgba(100, 100, 100, 0.2);
+  background: rgba(255, 255, 255, 0.8);
   padding: 2px 8px;
   cursor: pointer;
+  z-index: 2000;
+  border: 2px solid #FEDC62;
 }
 .toggle-button:hover {
-  background: rgba(100, 100, 100, 0.5);
+  background: rgba(255, 255, 255, 1.0);
 }
 
 *:focus {
   outline: none;
 }
-.overflow-scroll-60, .overflow-scroll-40 {
+.overflow-scroll-60, .overflow-scroll-40, .overflow-scroll-30 {
   border-top: 1px solid #EEE;
   -webkit-overflow-scrolling: touch;
   overflow-y: scroll;
 }
 .overflow-scroll-60{
-  height: 60vh;
-  max-height: 60vh;
+  height: 60vh !important;
+  max-height: 60vh !important;
 }
 .overflow-scroll-40{
-  height: 40vh;
-  max-height: 40vh;
+  height: 40vh !important;
+  max-height: 40vh !important;
+}
+.overflow-scroll-30{
+  height: 30vh !important;
+  max-height: 30vh !important;
 }
 @media screen and (min-width: 980px) {
-  .overflow-scroll-60, .overflow-scroll-40 {
-    height: 100vh;
-    max-height: 100vh;
+  .overflow-scroll-60, .overflow-scroll-40, .overflow-scroll-30 {
+    border-top: 0px;
+    height: 100vh !important;
+    max-height: 100vh !important;
   }
 }
 .is-code-background {
-  background-color: #282c34;
+  background-color: #263238;
 }
 .content {
   padding: 10px 20px;
-}
-.input-code {
-  width: 100%;
-  max-width: 100%;
-  min-width: 100%;
-  border-radius: 3px;
-  border: 0px;
-
 }
 .round {
   border-radius: 3px;
