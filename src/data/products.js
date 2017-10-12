@@ -110,6 +110,22 @@ let products = [
     storage: 128,
     type: 'iPhone',
     size: '5.5'
+  },
+  {
+    id: '020',
+    name: 'iphoneX',
+    price: 69000,
+    storage: 128,
+    type: 'iPhone',
+    size: '6.0'
+  },
+  {
+    id: '017',
+    name: 'iphone8',
+    price: 60000,
+    storage: 128,
+    type: 'iPhone',
+    size: '6.0'
   }
 ]
 export default products
