@@ -1,8 +1,11 @@
-.DS_Store
-node_modules/
-dist/
-.vscode/
+# dependencies
+node_modules
+
+# logs
 npm-debug.log
-selenium-debug.log
-test/unit/coverage
-test/e2e/reports
+
+# Nuxt build
+.nuxt
+
+# Nuxt generate
+dist
