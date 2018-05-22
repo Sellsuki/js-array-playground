@@ -1,6 +1,6 @@
 <template lang="html">
   <div>
-    <div class="" v-for="content in contents">
+    <div class="" v-for="(content, index) in contents" :key="index">
       <topic :content="content" :run="run"></topic>
       <hr>
     </div>

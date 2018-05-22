@@ -9,9 +9,11 @@
       {{ content.description }}
     </p>
 
-    <div v-for="example in examples">
+    <div v-for="(example, index) in examples" :key="index">
       <div class="code-container">
-        <codemirror v-model="example.code" :options="editorOption"></codemirror>
+        <no-ssr placeholder="Codemirror Loading...">
+          <codemirror v-model="example.code" :options="editorOption"></codemirror>
+        </no-ssr>
         <div class="button-group">
           <run-button :code="example.code" :run="run"></run-button>
         </div>
@@ -23,7 +25,6 @@
 </template>
 
 <script>
-import { codemirror } from 'vue-codemirror'
 import RunButton from './RunButton'
 
 export default {
@@ -39,16 +40,12 @@ export default {
     }
   },
   props: ['content', 'run'],
-  // mounted () {
-  //   this.inputCodes = this.content.examples
-  // },
   computed: {
     examples () {
       return this.content.examples
     }
   },
   components: {
-    codemirror,
     RunButton
   }
 }
