@@ -48,7 +48,7 @@ module.exports = {
       }
     },
     /*
-    ** Disabled the warning
+    ** Disabled warning
     */
     postcss: {
       plugins: {
