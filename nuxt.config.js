@@ -47,6 +47,9 @@ module.exports = {
         })
       }
     },
+    /*
+    ** Disabled the warning
+    */
     postcss: {
       plugins: {
         'postcss-custom-properties': {
