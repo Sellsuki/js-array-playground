@@ -1,14 +1,14 @@
 <template>
   <section class="is-fullheight">
     <div class="columns is-marginless is-gapless is-desktop">
-      <!-- <div class="column is-4-desktop is-code-background" :class="{'is-hidden-touch': toggleView}"> -->
       <div class="column is-4-desktop is-code-background">
         <div class="overflow-scroll-30">
-          <codemirror :code="inputString" :options="editorOption"></codemirror>
+          <no-ssr placeholder="Codemirror Loading...">
+            <codemirror :code="inputString" :options="editorOption"></codemirror>
+          </no-ssr>
         </div>
       </div>
 
-      <!-- <div class="column is-4-desktop" :class="{'is-hidden-touch': !toggleView}"> -->
       <div class="column is-4-desktop">
         <div class="overflow-scroll-40" @scroll="handleScroll">
           <div class="content is-medium">
@@ -22,26 +22,22 @@
 
       <div class="column is-4-desktop is-code-background">
         <div class="overflow-scroll-30">
-          <codemirror class="is-code-background" :code="resultString" :options="editorOption"></codemirror>
+          <no-ssr placeholder="Codemirror Loading...">
+            <codemirror class="is-code-background" :code="resultString" :options="editorOption"></codemirror>
+          </no-ssr>
         </div>
       </div>
     </div>
-    <!-- <div class="toggle-button is-hidden-desktop is-unselectable" @click="toggleView = !toggleView">
-      <span v-if="isTop && toggleView">Show Input</span>
-      <i v-if="!isTop && toggleView" class="fa fa-code" aria-hidden="true"></i>
-      <i v-if="!toggleView" class="fa fa-book" aria-hidden="true"></i>
-    </div> -->
   </section>
 </template>
 
 <script>
-import Contents from './components/Contents'
-import ContentFooter from './components/ContentFooter'
-import contents from './data/contents'
-import emojis from './data/emojis'
-import users from './data/users'
-import products from './data/products'
-import { codemirror } from 'vue-codemirror'
+import Contents from '../components/Contents'
+import ContentFooter from '../components/ContentFooter'
+import contents from '../data/contents'
+import emojis from '../data/emojis'
+import users from '../data/users'
+import products from '../data/products'
 
 export default {
   data () {
@@ -146,15 +142,14 @@ ${this.productsString}`
   },
   components: {
     Contents,
-    ContentFooter,
-    codemirror
+    ContentFooter
   }
 }
 </script>
 
 <style lang="scss">
-$column-gap: 0px;
-@import '~bulma';
+// $column-gap: 0px;
+// @import '~bulma';
 
 .CodeMirror {
   height: auto !important;
