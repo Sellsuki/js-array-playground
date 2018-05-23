@@ -3,6 +3,7 @@ let contents = [
     title: 'Array.filter()',
     type: 'pure',
     description: 'Creates a new array with all elements that pass the test implemented by the provided function.',
+    ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter',
     examples: [
       {
         code: '/* Try change the code */\nemojis.filter(\n\temoji => emoji === "🐶")\n/* and press ▶ Run below */'
@@ -28,6 +29,7 @@ let contents = [
     title: 'Array.find()',
     type: 'pure',
     description: 'Returns the value of the first element in the array that satisfies the provided testing function. Otherwise undefined is returned.',
+    ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find',
     examples: [
       {
         code: 'emojis.find(\n\temoji => emoji === "🐶")'
@@ -44,6 +46,7 @@ let contents = [
     title: 'Array.findIndex()',
     type: 'pure',
     description: 'Returns the index of the first element in the array that satisfies the provided testing function. Otherwise -1 is returned.',
+    ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex',
     examples: [
       {
         code: 'emojis.findIndex(\n\temoji => emoji === "🐶")'
@@ -60,6 +63,7 @@ let contents = [
     title: 'Array.map()',
     type: 'pure',
     description: 'Creates a new array with the results of calling a provided function on every element in the calling array.',
+    ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map',
     examples: [
       {
         code: 'emojis.map(\n\temoji => \n\t\t\'Char code of \' + emoji + \' is \' + emoji.codePointAt(0))'
@@ -82,6 +86,7 @@ let contents = [
     title: 'Array.reduce()',
     type: 'pure',
     description: 'Applies a function against an accumulator and each element in the array (from left to right) to reduce it to a single value.',
+    ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce',
     examples: [
       {
         code: 'users.reduce(\n\t(previousValue, currentValue) => \n\t\tpreviousValue + currentValue.age, 0)'
@@ -110,6 +115,7 @@ let contents = [
     title: 'Array.sort()',
     type: 'impure',
     description: 'Sorts the elements of an array and returns the array. We can define the conditions for sorting.',
+    ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort',
     examples: [
       {
         code: 'emojis.sort()'
@@ -132,6 +138,7 @@ let contents = [
     title: 'Array.reverse()',
     type: 'impure',
     description: 'Reverses an array in place.',
+    ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse',
     examples: [
       {
         code: 'emojis.reverse()'
@@ -148,6 +155,7 @@ let contents = [
     title: 'Array.push()',
     type: 'impure',
     description: 'Adds one or more elements to the end of an array and returns the new length of the array.',
+    ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push',
     examples: [
       {
         code: 'emojis.push(\'💥\')'
@@ -177,6 +185,7 @@ let contents = [
     title: 'Array.shift()',
     type: 'impure',
     description: 'Removes the first element from an array and returns that removed element. This method changes the length of the array.',
+    ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/shift',
     examples: [
       {
         code: 'emojis.shift()'
@@ -193,6 +202,7 @@ let contents = [
     title: 'Array.pop()',
     type: 'impure',
     description: 'Removes the last element from an array and returns that element. This method changes the length of the array.',
+    ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop',
     examples: [
       {
         code: 'emojis.pop()'
@@ -209,6 +219,7 @@ let contents = [
     title: 'Array.splice()',
     type: 'impure',
     description: 'Changes the contents of an array by removing existing elements and/or adding new elements.',
+    ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice',
     examples: [
       {
         code: '/*Add new element to index 2*/\n emojis.splice(2, 0,\n\t "👍", "👊", "✊", "✌️", "👌", "✋")'
@@ -225,6 +236,7 @@ let contents = [
     title: 'Array.join()',
     type: 'pure',
     description: 'Joins all elements of an array (or an array-like object) into a string and returns this string.',
+    ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join',
     examples: [
       {
         code: 'emojis.join()'
@@ -238,6 +250,7 @@ let contents = [
     title: 'Array.concat()',
     type: 'pure',
     description: 'This method is used to merge two or more arrays. This method does not change the existing arrays, but instead returns a new array.',
+    ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat',
     examples: [
       {
         code: '//Take first array and concatenate\n/* with the second array.*/\nemojis.concat(users)'
@@ -254,6 +267,7 @@ let contents = [
     title: 'Array.slice()',
     type: 'pure',
     description: 'Returns a shallow copy of a portion of an array into a new array object selected from begin to end (end not included). The original array will not be modified.',
+    ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice',
     examples: [
       {
         code: '// Extracts all element.\nemojis.slice()'
@@ -270,6 +284,7 @@ let contents = [
     title: 'Array.toString()',
     type: 'pure',
     description: 'Returns a string representing the specified array and its elements.',
+    ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/toString',
     examples: [
       {
         code: '// Return toString value of emojis. \nemojis.toString()'

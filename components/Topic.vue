@@ -7,6 +7,7 @@
     </h1>
     <p>
       {{ content.description }}
+      <a v-if="content.ref !== undefined && content.ref != null" class="button is-text" :href=content.ref>More</a>
     </p>
 
     <div v-for="(example, index) in examples" :key="index">
