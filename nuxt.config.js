@@ -46,6 +46,16 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
+    },
+    /*
+    ** Disabled warning
+    */
+    postcss: {
+      plugins: {
+        'postcss-custom-properties': {
+          warnings: false
+        }
+      }
     }
   }
 }
