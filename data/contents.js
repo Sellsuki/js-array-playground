@@ -303,6 +303,258 @@ let contents = [
         code: '// or use [].concat \nvar copyEmojisAgain = [].concat(emojis)\n// Try push element to emojis\ncopyEmojisAgain.push(\'🏀\')\ncopyEmojisAgain'
       }
     ]
+  },
+  {
+    title: 'Array.copyWithin()',
+    type: 'impure',
+    description: 'Shallow copies part of an array to another location in the same array and returns it, without modifying its size.',
+    ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/copyWithin',
+    examples: [
+      {
+        code: '// place at position 0 \n// the element between\n// position 3 and 4 \nvar copyEmojis = emojis.slice(0)\ncopyEmojis.copyWithin(0, 3, 4)'
+      },
+      {
+        code: '// place at position 1 \n// the elements after \n// position 3 \nvar copyEmojis = emojis.slice(0)\ncopyEmojis.copyWithin(1, 3)'
+      }
+    ]
+  },
+  {
+    title: 'Array.entries()',
+    type: 'pure',
+    description: 'Returns a new Array Iterator object that contains the key/value pairs for each index in the array.',
+    ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/entries',
+    examples: [
+      {
+        code: '// place at position 0 \nvar iterator = emojis.entries()\niterator.next().value'
+      }
+    ]
+  },
+  {
+    title: 'Array.every()',
+    type: 'pure',
+    description: 'Tests whether all elements in the array pass the test implemented by the provided function.',
+    ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every',
+    examples: [
+      {
+        code: '// function to test\nfunction isPriceBelowThreshold(product) {\n  return product.price < 100000;\n}\nproducts.every(isPriceBelowThreshold)'
+      }
+    ]
+  },
+  {
+    title: 'Array.fill()',
+    type: 'impure',
+    description: 'Fills all the elements of an array from a start index to an end index with a static value. The end index is not included.',
+    ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fill',
+    examples: [
+      {
+        code: 'var copyEmojis = emojis.slice(0)\n// fill with 0 from position \n// 2 until position 4\ncopyEmojis.fill(0, 2, 4)'
+      },
+      {
+        code: 'var copyEmojis = emojis.slice(0)\n// fill with 1 from position 2\ncopyEmojis.fill(1, 2)'
+      },
+      {
+        code: 'var copyEmojis = emojis.slice(0)\n// fill with 2 \ncopyEmojis.fill(2)'
+      }
+    ]
+  },
+  {
+    title: 'Array.find()',
+    type: 'pure',
+    description: 'Returns the value of the first element in the array that satisfies the provided testing function. Otherwise undefined is returned.',
+    ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find',
+    examples: [
+      {
+        code: '// Find the first user \n// age more than 14\nusers.find(function(user) {\n  return user.age > 14\n})'
+      }
+    ]
+  },
+  {
+    title: 'Array.forEach()',
+    type: 'pure',
+    description: 'Executes a provided function once for each array element.',
+    ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach',
+    examples: [
+      {
+        // cant find the right example
+        code: 'emojis.forEachforEach(function(emoji) {\n emoji.slice(0) \n})'
+      }
+    ]
+  },
+  {
+    title: 'Array.includes()',
+    type: 'pure',
+    description: 'Determines whether an array includes a certain element, returning true or false as appropriate. It uses the sameValueZero algorithm to determine whether the given element is found.',
+    ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes',
+    examples: [
+      {
+        code: 'emojis.includes("💻")'
+      },
+      {
+        code: 'emojis.includes("🇹🇭")'
+      },
+      {
+        code: 'emojis.includes("🍵")'
+      }
+    ]
+  },
+  {
+    title: 'Array.from()',
+    type: 'pure',
+    description: 'Creates a new, shallow-copied Array instance from an array-like or iterable object.',
+    ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from',
+    examples: [
+      {
+        code: 'Array.from("shiba")'
+      }
+    ]
+  },
+  {
+    title: 'Array.isArray()',
+    type: 'pure',
+    description: 'Determines whether the passed value is an Array.',
+    ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray',
+    examples: [
+      {
+        code: 'Array.isArray(emojis)'
+      }
+    ]
+  },
+  {
+    title: 'Array.of()',
+    type: 'pure',
+    description: 'Creates a new Array instance with a variable number of arguments, regardless of number or type of the arguments.',
+    ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/of',
+    examples: [
+      {
+        code: 'Array.of(1, 2, 3, 4, 5)'
+      }
+    ]
+  },
+  {
+    title: 'Array.indexOf()',
+    type: 'pure',
+    description: 'Returns the first index at which a given element can be found in the array, or -1 if it is not present.',
+    ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf',
+    examples: [
+      {
+        code: 'emojis.indexOf("☕️")'
+      },
+      {
+        code: 'emojis.indexOf("👙")'
+      },
+      {
+        code: 'emojis.indexOf("🍶")'
+      }
+    ]
+  },
+  {
+    title: 'Array.keys()',
+    type: 'pure',
+    description: 'Returns a new Array Iterator object that contains the keys for each index in the array.',
+    ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/keys',
+    examples: [
+      {
+        // cant find the right example
+        code: 'emojis.keys()'
+      }
+    ]
+  },
+  {
+    title: 'Array.lastIndexOf()',
+    type: 'pure',
+    description: 'Returns the last index at which a given element can be found in the array, or -1 if it is not present. The array is searched backwards, starting at fromIndex.',
+    ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/lastIndexOf',
+    examples: [
+      {
+        code: 'emojis.lastIndexOf("🍻")'
+      },
+      {
+        code: 'emojis.lastIndexOf("👙")'
+      },
+      {
+        code: 'emojis.lastIndexOf("💪")'
+      }
+    ]
+  },
+  {
+    title: 'Array.map()',
+    type: 'pure',
+    description: 'Creates a new array with the results of calling a provided function on every element in the calling array.',
+    ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map',
+    examples: [
+      {
+        code: 'var array = [1, 4, 9, 16]\narray.map(x => x * 2)'
+      }
+    ]
+  },
+  {
+    title: 'Array.reduceRight()',
+    type: 'impure',
+    description: 'Applies a function against an accumulator and each value of the array (from right-to-left) to reduce it to a single value.',
+    ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map',
+    examples: [
+      {
+        code: '[[0, 1], [2, 3], [4, 5]].reduceRight(\n  (previousValue, currentValue) => previousValue.concat(currentValue)\n)'
+      }
+    ]
+  },
+  {
+    title: 'Array.some()',
+    type: 'pure',
+    description: 'Tests whether at least one element in the array passes the test implemented by the provided function.',
+    ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some',
+    examples: [
+      {
+        code: 'var array = [1, 2, 3, 4, 5]\nvar even = function(element) {\n  // checks whether an element is even\n  return element % 2 === 0;\n}\narray.some(even)'
+      }
+    ]
+  },
+  {
+    title: 'Array.toLocaleString()',
+    type: 'pure',
+    description: 'Returns a string representing the elements of the array. The elements are converted to Strings using their toLocaleString methods and these Strings are separated by a locale-specific String (such as a comma “,”).',
+    ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/toLocaleString',
+    examples: [
+      {
+        code: 'var array1 = [1, "a", new Date("21 Dec 1997 14:12:00 UTC")]\narray1.toLocaleString("en", {timeZone: "UTC"})'
+      }
+    ]
+  },
+  {
+    title: 'Array.unshift()',
+    type: 'impure',
+    description: 'Adds one or more elements to the beginning of an array and returns the new length of the array.',
+    ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift',
+    examples: [
+      {
+        code: 'emojis.unshift("🍺","🍻")'
+      }
+    ]
+  },
+  {
+    title: 'Array.values()',
+    type: 'pure',
+    description: 'Returns a new Array Iterator object that contains the values for each index in the array.',
+    ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/values',
+    examples: [
+      {
+        // cant find the right example
+        code: '["a", "b", "c"].values()'
+      }
+    ]
+  },
+  {
+    title: 'Array[Symbol.iterator]()',
+    type: 'pure',
+    description: 'Property is the same function object as the initial value of the values() property.',
+    ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/@@iterator',
+    examples: [
+      {
+        // cant find the right example
+        code: 'var arr = ["w", "y", "k", "o", "p"]\nvar eArr = arr[Symbol.iterator]()'
+      }
+    ]
   }
 ]
+
 export default contents
