@@ -124,13 +124,10 @@ let contents = [
         code: 'users.sort()'
       },
       {
-        code: 'products.sort()'
+        code: '/*Order by name*/\nusers.sort(\n\t(a, b) => (a.name - b.name))'
       },
       {
-        code: '/*Order by name*/\nusers.sort(\n\t(a, b) => (a.name > b.name))'
-      },
-      {
-        code: '/*Order by price*/\nproducts.sort(\n\t(a, b) => (a.price > b.price))'
+        code: '/*Order by price*/\nproducts.sort(\n\t(a, b) => (a.price - b.price))'
       }
     ]
   },
@@ -375,8 +372,7 @@ let contents = [
     ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach',
     examples: [
       {
-        // cant find the right example
-        code: 'emojis.forEachforEach(function(emoji) {\n emoji.slice(0) \n})'
+        code: 'let copyEmojis = ""\nemojis.forEach(function(emoji) {\n copyEmojis += emoji\n})\ncopyEmojis'
       }
     ]
   },
@@ -454,8 +450,7 @@ let contents = [
     ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/keys',
     examples: [
       {
-        // cant find the right example
-        code: 'emojis.keys()'
+        code: 'let copyEmoji = ""\nvar iterator = emojis.keys()\nfor (let key of iterator) {\n  copyEmoji += key; // expected output: 0 1 2\n}\ncopyEmoji'
       }
     ]
   },
@@ -538,8 +533,7 @@ let contents = [
     ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/values',
     examples: [
       {
-        // cant find the right example
-        code: '["a", "b", "c"].values()'
+        code: 'let copyArray = ""\nconst array = ["a", "b", "c"]\nconst iterator = array.values()\nfor (const value of iterator) {\n  copyArray += value // \n}\ncopyArray'
       }
     ]
   },
@@ -551,7 +545,7 @@ let contents = [
     examples: [
       {
         // cant find the right example
-        code: 'var arr = ["w", "y", "k", "o", "p"]\nvar eArr = arr[Symbol.iterator]()'
+        code: 'let copyArray = ""\nvar arr = ["w", "y", "k", "o", "p"]\nvar eArr = arr[Symbol.iterator]()\nfor (let letter of eArr) {\n  copyArray += letter\n}\ncopyArray'
       }
     ]
   }
