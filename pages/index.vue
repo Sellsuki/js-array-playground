@@ -46,7 +46,12 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: 'Meta description' },
-      { property: 'og:image', content: "../static/preview.jpg" }
+      { property: 'og:image', content: '/static/preview.jpg' },
+      { property: 'fb:app_id', content: '1696891677065225' },
+      { property: 'og:url', content: 'https://0e8c9fd5.ngrok.io' },
+      { property: 'og:type', content: 'education' },
+      { property: 'og:title', content: 'js-array-playground' },
+      { property: 'og:description', content: 'JavaScript Array Playground' }
     ]
   },
   data () {
