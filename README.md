@@ -38,7 +38,7 @@
 * Array.toLocaleString()
 * Array.unshift()
 * Array.values()
-* Array[Symbol.iterator]()
+* Array&#91;Symbol.iterator&#93;()
 
 > JavaScript Array Playground
 
