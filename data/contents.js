@@ -28,7 +28,8 @@ let contents = [
   {
     title: 'Array.find()',
     type: 'pure',
-    description: 'Returns the value of the first element in the array that satisfies the provided testing function. Otherwise undefined is returned.',
+    description:
+      'Returns the value of the first element in the array that satisfies the provided testing function. Otherwise undefined is returned.',
     ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find',
     examples: [
       {
@@ -45,7 +46,8 @@ let contents = [
   {
     title: 'Array.findIndex()',
     type: 'pure',
-    description: 'Returns the index of the first element in the array that satisfies the provided testing function. Otherwise -1 is returned.',
+    description:
+      'Returns the index of the first element in the array that satisfies the provided testing function. Otherwise -1 is returned.',
     ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex',
     examples: [
       {
@@ -62,11 +64,12 @@ let contents = [
   {
     title: 'Array.map()',
     type: 'pure',
-    description: 'Creates a new array with the results of calling a provided function on every element in the calling array.',
+    description:
+      'Creates a new array with the results of calling a provided function on every element in the calling array.',
     ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map',
     examples: [
       {
-        code: 'emojis.map(\n\temoji => \n\t\t\'Char code of \' + emoji + \' is \' + emoji.codePointAt(0))'
+        code: "emojis.map(\n\temoji => \n\t\t'Char code of ' + emoji + ' is ' + emoji.codePointAt(0))"
       },
       {
         code: 'users.map(\n\tuser => user)'
@@ -75,7 +78,7 @@ let contents = [
         code: 'users.map(\n\tuser => user.gender)'
       },
       {
-        code: 'users.map(\n\tuser => \n\t\tuser.name + \' age \' + user.age)'
+        code: "users.map(\n\tuser => \n\t\tuser.name + ' age ' + user.age)"
       },
       {
         code: 'users.map(\n\tuser => user.gender).length'
@@ -85,7 +88,8 @@ let contents = [
   {
     title: 'Array.reduce()',
     type: 'pure',
-    description: 'Applies a function against an accumulator and each element in the array (from left to right) to reduce it to a single value.',
+    description:
+      'Applies a function against an accumulator and each element in the array (from left to right) to reduce it to a single value.',
     ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce',
     examples: [
       {
@@ -107,7 +111,7 @@ let contents = [
     description: 'Two method can put together.',
     examples: [
       {
-        code: 'users.filter(\n\tuser => \n\t\tuser.gender === \'female\')\n\t\t\t.map(user => user.username)'
+        code: "users.filter(\n\tuser => \n\t\tuser.gender === 'female')\n\t\t\t.map(user => user.username)"
       }
     ]
   },
@@ -155,13 +159,13 @@ let contents = [
     ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push',
     examples: [
       {
-        code: 'emojis.push(\'💥\')'
+        code: "emojis.push('💥')"
       },
       {
-        code: 'emojis.push(\'⚽\', \'🏀\')'
+        code: "emojis.push('⚽', '🏀')"
       },
       {
-        code: '/* Observe this carefully */\nemojis.push([\'🔫\', \'💣\', \'🔪\'])'
+        code: "/* Observe this carefully */\nemojis.push(['🔫', '💣', '🔪'])"
       }
     ]
   },
@@ -171,17 +175,20 @@ let contents = [
     description: 'We can pure push too.',
     examples: [
       {
-        code: '// Use spread operator\nvar newEmojis = [...emojis, \'🏀\']\n// Try push to array\nnewEmojis.push(\'🏀\')\nnewEmojis'
+        code:
+          "// Use spread operator\nvar newEmojis = [...emojis, '🏀']\n// Try push to array\nnewEmojis.push('🏀')\nnewEmojis"
       },
       {
-        code: '// or use concat \nvar newEmojisAgain = [].concat(emojis, \'👍\')\n// Try push to array\nnewEmojisAgain.push(\'🏀\')\nnewEmojisAgain'
+        code:
+          "// or use concat \nvar newEmojisAgain = [].concat(emojis, '👍')\n// Try push to array\nnewEmojisAgain.push('🏀')\nnewEmojisAgain"
       }
     ]
   },
   {
     title: 'Array.shift()',
     type: 'impure',
-    description: 'Removes the first element from an array and returns that removed element. This method changes the length of the array.',
+    description:
+      'Removes the first element from an array and returns that removed element. This method changes the length of the array.',
     ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/shift',
     examples: [
       {
@@ -198,7 +205,8 @@ let contents = [
   {
     title: 'Array.pop()',
     type: 'impure',
-    description: 'Removes the last element from an array and returns that element. This method changes the length of the array.',
+    description:
+      'Removes the last element from an array and returns that element. This method changes the length of the array.',
     ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop',
     examples: [
       {
@@ -246,7 +254,8 @@ let contents = [
   {
     title: 'Array.concat()',
     type: 'pure',
-    description: 'This method is used to merge two or more arrays. This method does not change the existing arrays, but instead returns a new array.',
+    description:
+      'This method is used to merge two or more arrays. This method does not change the existing arrays, but instead returns a new array.',
     ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat',
     examples: [
       {
@@ -256,14 +265,16 @@ let contents = [
         code: '//Concatenate more than 2 arrays\nempty.concat(users, emojis)'
       },
       {
-        code: '//Concatenate more than 3 elements\n//with empty array\n[].concat(["🇹🇭", "🇰🇷", "🇯🇵"], emojis, ["🇹🇭", "🇰🇷", "🇯🇵"])'
+        code:
+          '//Concatenate more than 3 elements\n//with empty array\n[].concat(["🇹🇭", "🇰🇷", "🇯🇵"], emojis, ["🇹🇭", "🇰🇷", "🇯🇵"])'
       }
     ]
   },
   {
     title: 'Array.slice()',
     type: 'pure',
-    description: 'Returns a shallow copy of a portion of an array into a new array object selected from begin to end (end not included). The original array will not be modified.',
+    description:
+      'Returns a shallow copy of a portion of an array into a new array object selected from begin to end (end not included). The original array will not be modified.',
     ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice',
     examples: [
       {
@@ -294,24 +305,29 @@ let contents = [
     description: 'pure Copy Array',
     examples: [
       {
-        code: '// Copy emojis array \nvar copyEmojis = [...emojis]\n// Try push element to emojis\ncopyEmojis.push(\'🏀\')\ncopyEmojis'
+        code:
+          "// Copy emojis array \nvar copyEmojis = [...emojis]\n// Try push element to emojis\ncopyEmojis.push('🏀')\ncopyEmojis"
       },
       {
-        code: '// or use [].concat \nvar copyEmojisAgain = [].concat(emojis)\n// Try push element to emojis\ncopyEmojisAgain.push(\'🏀\')\ncopyEmojisAgain'
+        code:
+          "// or use [].concat \nvar copyEmojisAgain = [].concat(emojis)\n// Try push element to emojis\ncopyEmojisAgain.push('🏀')\ncopyEmojisAgain"
       }
     ]
   },
   {
     title: 'Array.copyWithin()',
     type: 'impure',
-    description: 'Shallow copies part of an array to another location in the same array and returns it, without modifying its size.',
+    description:
+      'Shallow copies part of an array to another location in the same array and returns it, without modifying its size.',
     ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/copyWithin',
     examples: [
       {
-        code: '// place at position 0 \n// the element between\n// position 3 and 4 \nvar copyEmojis = emojis.slice(0)\ncopyEmojis.copyWithin(0, 3, 4)'
+        code:
+          '// place at position 0 \n// the element between\n// position 3 and 4 \nvar copyEmojis = emojis.slice(0)\ncopyEmojis.copyWithin(0, 3, 4)'
       },
       {
-        code: '// place at position 1 \n// the elements after \n// position 3 \nvar copyEmojis = emojis.slice(0)\ncopyEmojis.copyWithin(1, 3)'
+        code:
+          '// place at position 1 \n// the elements after \n// position 3 \nvar copyEmojis = emojis.slice(0)\ncopyEmojis.copyWithin(1, 3)'
       }
     ]
   },
@@ -333,18 +349,21 @@ let contents = [
     ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every',
     examples: [
       {
-        code: '// function to test\nfunction isPriceBelowThreshold(product) {\n  return product.price < 100000;\n}\nproducts.every(isPriceBelowThreshold)'
+        code:
+          '// function to test\nfunction isPriceBelowThreshold(product) {\n  return product.price < 100000;\n}\nproducts.every(isPriceBelowThreshold)'
       }
     ]
   },
   {
     title: 'Array.fill()',
     type: 'impure',
-    description: 'Fills all the elements of an array from a start index to an end index with a static value. The end index is not included.',
+    description:
+      'Fills all the elements of an array from a start index to an end index with a static value. The end index is not included.',
     ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fill',
     examples: [
       {
-        code: 'var copyEmojis = emojis.slice(0)\n// fill with 0 from position \n// 2 until position 4\ncopyEmojis.fill(0, 2, 4)'
+        code:
+          'var copyEmojis = emojis.slice(0)\n// fill with 0 from position \n// 2 until position 4\ncopyEmojis.fill(0, 2, 4)'
       },
       {
         code: 'var copyEmojis = emojis.slice(0)\n// fill with 1 from position 2\ncopyEmojis.fill(1, 2)'
@@ -357,7 +376,8 @@ let contents = [
   {
     title: 'Array.find()',
     type: 'pure',
-    description: 'Returns the value of the first element in the array that satisfies the provided testing function. Otherwise undefined is returned.',
+    description:
+      'Returns the value of the first element in the array that satisfies the provided testing function. Otherwise undefined is returned.',
     ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find',
     examples: [
       {
@@ -379,7 +399,8 @@ let contents = [
   {
     title: 'Array.includes()',
     type: 'pure',
-    description: 'Determines whether an array includes a certain element, returning true or false as appropriate. It uses the sameValueZero algorithm to determine whether the given element is found.',
+    description:
+      'Determines whether an array includes a certain element, returning true or false as appropriate. It uses the sameValueZero algorithm to determine whether the given element is found.',
     ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes',
     examples: [
       {
@@ -418,7 +439,8 @@ let contents = [
   {
     title: 'Array.of()',
     type: 'pure',
-    description: 'Creates a new Array instance with a variable number of arguments, regardless of number or type of the arguments.',
+    description:
+      'Creates a new Array instance with a variable number of arguments, regardless of number or type of the arguments.',
     ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/of',
     examples: [
       {
@@ -429,7 +451,8 @@ let contents = [
   {
     title: 'Array.indexOf()',
     type: 'pure',
-    description: 'Returns the first index at which a given element can be found in the array, or -1 if it is not present.',
+    description:
+      'Returns the first index at which a given element can be found in the array, or -1 if it is not present.',
     ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf',
     examples: [
       {
@@ -450,14 +473,16 @@ let contents = [
     ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/keys',
     examples: [
       {
-        code: 'let copyEmoji = ""\nvar iterator = emojis.keys()\nfor (let key of iterator) {\n  copyEmoji += key; // expected output: 0 1 2\n}\ncopyEmoji'
+        code:
+          'let copyEmoji = ""\nvar iterator = emojis.keys()\nfor (let key of iterator) {\n  copyEmoji += key; // expected output: 0 1 2\n}\ncopyEmoji'
       }
     ]
   },
   {
     title: 'Array.lastIndexOf()',
     type: 'pure',
-    description: 'Returns the last index at which a given element can be found in the array, or -1 if it is not present. The array is searched backwards, starting at fromIndex.',
+    description:
+      'Returns the last index at which a given element can be found in the array, or -1 if it is not present. The array is searched backwards, starting at fromIndex.',
     ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/lastIndexOf',
     examples: [
       {
@@ -474,7 +499,8 @@ let contents = [
   {
     title: 'Array.map()',
     type: 'pure',
-    description: 'Creates a new array with the results of calling a provided function on every element in the calling array.',
+    description:
+      'Creates a new array with the results of calling a provided function on every element in the calling array.',
     ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map',
     examples: [
       {
@@ -485,33 +511,39 @@ let contents = [
   {
     title: 'Array.reduceRight()',
     type: 'impure',
-    description: 'Applies a function against an accumulator and each value of the array (from right-to-left) to reduce it to a single value.',
+    description:
+      'Applies a function against an accumulator and each value of the array (from right-to-left) to reduce it to a single value.',
     ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map',
     examples: [
       {
-        code: '[[0, 1], [2, 3], [4, 5]].reduceRight(\n  (previousValue, currentValue) => previousValue.concat(currentValue)\n)'
+        code:
+          '[[0, 1], [2, 3], [4, 5]].reduceRight(\n  (previousValue, currentValue) => previousValue.concat(currentValue)\n)'
       }
     ]
   },
   {
     title: 'Array.some()',
     type: 'pure',
-    description: 'Tests whether at least one element in the array passes the test implemented by the provided function.',
+    description:
+      'Tests whether at least one element in the array passes the test implemented by the provided function.',
     ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some',
     examples: [
       {
-        code: 'var array = [1, 2, 3, 4, 5]\nvar even = function(element) {\n  // checks whether an element is even\n  return element % 2 === 0;\n}\narray.some(even)'
+        code:
+          'var array = [1, 2, 3, 4, 5]\nvar even = function(element) {\n  // checks whether an element is even\n  return element % 2 === 0;\n}\narray.some(even)'
       }
     ]
   },
   {
     title: 'Array.toLocaleString()',
     type: 'pure',
-    description: 'Returns a string representing the elements of the array. The elements are converted to Strings using their toLocaleString methods and these Strings are separated by a locale-specific String (such as a comma “,”).',
+    description:
+      'Returns a string representing the elements of the array. The elements are converted to Strings using their toLocaleString methods and these Strings are separated by a locale-specific String (such as a comma “,”).',
     ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/toLocaleString',
     examples: [
       {
-        code: 'var array1 = [1, "a", new Date("21 Dec 1997 14:12:00 UTC")]\narray1.toLocaleString("en", {timeZone: "UTC"})'
+        code:
+          'var array1 = [1, "a", new Date("21 Dec 1997 14:12:00 UTC")]\narray1.toLocaleString("en", {timeZone: "UTC"})'
       }
     ]
   },
@@ -533,7 +565,8 @@ let contents = [
     ref: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/values',
     examples: [
       {
-        code: 'let copyArray = ""\nconst array = ["a", "b", "c"]\nconst iterator = array.values()\nfor (const value of iterator) {\n  copyArray += value // \n}\ncopyArray'
+        code:
+          'let copyArray = ""\nconst array = ["a", "b", "c"]\nconst iterator = array.values()\nfor (const value of iterator) {\n  copyArray += value // \n}\ncopyArray'
       }
     ]
   },
@@ -545,7 +578,20 @@ let contents = [
     examples: [
       {
         // cant find the right example
-        code: 'let copyArray = ""\nvar arr = ["w", "y", "k", "o", "p"]\nvar eArr = arr[Symbol.iterator]()\nfor (let letter of eArr) {\n  copyArray += letter\n}\ncopyArray'
+        code:
+          'let copyArray = ""\nvar arr = ["w", "y", "k", "o", "p"]\nvar eArr = arr[Symbol.iterator]()\nfor (let letter of eArr) {\n  copyArray += letter\n}\ncopyArray'
+      }
+    ]
+  },
+  {
+    title: 'How to break loop array function with Array.some()',
+    type: 'pure',
+    description: 'If use forEach and want to break loop just use some and return with condition',
+    ref: 'https://stackoverflow.com/questions/2641347/how-to-short-circuit-array-foreach-like-calling-break',
+    examples: [
+      {
+        // cant find the right example
+        code: 'users.some(item => {\n\tconsole.log(item)\n\treturn item.id === 1002\n})'
       }
     ]
   }

@@ -23,7 +23,7 @@
       <div class="column is-4-desktop is-code-background">
         <div class="overflow-scroll-30">
           <no-ssr placeholder="Codemirror Loading...">
-            <codemirror class="is-code-background" :code="resultString" :options="editorOption"></codemirror>
+              <codemirror class="is-code-background" :code="resultString" :options="editorOption"></codemirror>
           </no-ssr>
         </div>
       </div>
@@ -64,7 +64,7 @@ export default {
       contents: [...contents],
       users: [...users],
       products: [...products],
-      result: 'output',
+      result: '\"output\"',
       scrollArea: 'TOP',
       editorOption: {
         tabSize: 2,
@@ -100,7 +100,7 @@ ${this.productsString}`
       return 'var products = ' + JSON.stringify(this.products, null, '  ')
     },
     resultString () {
-      return JSON.stringify(this.result, null, '  ')
+      return this.result
     },
     footerEmoji () {
       return this.emojis[this.emojisIndex]
@@ -109,6 +109,15 @@ ${this.productsString}`
   methods: {
     run (code) {
       try {
+        console.oldLog = console.log
+        let outputLog = ''
+        console.log = function(value) {
+          if (typeof value === 'object') {
+            outputLog += `${JSON.stringify(value, null, '  ')}\n`           
+          } else {
+            outputLog += `${value}`
+          }
+        }
         /*eslint-disable */
         let result = eval(this.preprocessCode(code))
         /*eslint-enable */
@@ -117,7 +126,14 @@ ${this.productsString}`
         } else {
           this.result = 'undefined'
         }
+
+        this.result = JSON.stringify(this.result, null, '  ')
+
+        if (outputLog) {
+          this.result = `/*log output*/\n${outputLog}\n/*return value*/\n${this.result}`
+        }
       } catch (e) {
+        console.oldLog(e.toString())
         this.result = e.toString()
       }
     },
